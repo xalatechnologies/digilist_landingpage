@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Building2, Calendar, Users, ArrowRight, Dumbbell, UsersRound, Theater, BookOpen, Presentation, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -29,13 +30,15 @@ export const HeroSection: React.FC = () => {
               <Button size="lg">
                 Kom i gang
               </Button>
-              <Button 
-                variant="secondary" 
-                size="lg"
-                showArrow
-              >
-                Slik fungerer det
-              </Button>
+              <Link href="/demo">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  showArrow
+                >
+                  Slik fungerer det
+                </Button>
+              </Link>
             </div>
 
             {/* Quick Stats/Features */}

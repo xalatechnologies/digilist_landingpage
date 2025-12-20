@@ -15,7 +15,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   role,
 }) => {
   return (
-    <Card hoverable className="relative h-full flex flex-col group">
+    <Card hoverable className="relative h-full flex flex-col group bg-green-50/40 hover:bg-green-50 transition-colors duration-300">
       <Quote 
         className="text-background-light fill-background-light absolute top-6 right-6 group-hover:text-action-blue/20 group-hover:fill-action-blue/20 transition-colors duration-300" 
         size={36} 

@@ -126,7 +126,7 @@ const RentalObjectCard: React.FC<{
   return (
     <div
       onClick={() => onCardClick(object.id)}
-      className="group bg-white border-2 border-gray-200 rounded-digdir overflow-hidden cursor-pointer shadow-md hover:border-action-blue hover:shadow-2xl hover:-translate-y-[4px] transition-all duration-300 ease-out"
+      className="group bg-blue-50 hover:bg-blue-100 border-2 border-gray-200 rounded-digdir overflow-hidden cursor-pointer shadow-md hover:border-action-blue hover:shadow-2xl hover:-translate-y-[4px] transition-all duration-300 ease-out"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -202,7 +202,7 @@ const RentalObjectCard: React.FC<{
       </div>
 
       {/* Content */}
-      <div className="p-6 bg-white">
+      <div className="p-6 bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
         <div className="flex items-start justify-between mb-3">
           <Heading level={3} className="text-gray-900 group-hover:text-action-blue transition-colors duration-300 font-semibold">
             <span className="group-hover:underline decoration-2 underline-offset-4 transition-all duration-300">

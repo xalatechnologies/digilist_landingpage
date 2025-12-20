@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CheckCircle2, PlayCircle, Menu, X, Building2, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { Logo } from '@/components/ui/Logo';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -76,13 +77,10 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <Link 
             href="/"
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center cursor-pointer group"
             aria-label="Digilist - Gå til forsiden"
           >
-            <div className="flex items-center justify-center text-action-blue" aria-hidden="true">
-              <CheckCircle2 size={32} strokeWidth={2} />
-            </div>
-            <span className="text-xl font-extrabold text-navy-base tracking-tighter">Digilist</span>
+            <Logo size={32} className="group-hover:opacity-90 transition-opacity duration-300" />
           </Link>
 
           {/* Desktop Navigation */}

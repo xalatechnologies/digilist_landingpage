@@ -34,7 +34,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   }
 
   return (
-    <Card hoverable className="flex flex-col h-full">
+    <Card hoverable className="flex flex-col h-full bg-orange-50 hover:bg-orange-100 transition-colors duration-300">
       <div className="mb-6">
         <IconComponent 
           size={40} 

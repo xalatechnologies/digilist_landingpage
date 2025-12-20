@@ -224,7 +224,7 @@ export const LearningPlatform: React.FC = () => {
                 key={video.id}
                 hoverable
                 onClick={() => setSelectedVideo(video)}
-                className="group cursor-pointer overflow-hidden h-full flex flex-col hover:!border-green-700"
+                className="group cursor-pointer overflow-hidden h-full flex flex-col hover:!border-green-700 bg-purple-50/40 hover:bg-purple-50 transition-colors duration-300"
               >
                 {/* Video Thumbnail */}
                 <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-digdir mb-5 overflow-hidden border-2 border-gray-200 group-hover:border-green-500/50 transition-all">
