@@ -85,7 +85,7 @@ export const IntegrationShowcase: React.FC = () => {
   return (
     <Section variant="rich-primary" id="integrasjoner">
       <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
         {/* Left - Header and CTA */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-24">

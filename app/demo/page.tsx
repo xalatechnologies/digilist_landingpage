@@ -120,7 +120,7 @@ export default function DemoPage() {
       <section className="relative overflow-hidden bg-sky2/10">
         
         <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-12 md:pt-12 md:pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="text-center lg:text-left">
               <motion.div

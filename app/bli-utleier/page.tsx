@@ -18,7 +18,7 @@ export default function BliUtleierPage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 pt-16 pb-24 md:pt-20 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Column: Text Content */}
             <div>
               <motion.div
@@ -26,7 +26,7 @@ export default function BliUtleierPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
               >
-                <Heading level={1} className="mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight text-navy">
+                <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-navy">
                   Bli utleier
                 </Heading>
               </motion.div>
@@ -60,7 +60,7 @@ export default function BliUtleierPage() {
 
       {/* Main Content Sections */}
       <div className="bg-white">
-        <div className="max-w-[1140px] mx-auto px-6 py-16 md:py-24">
+        <div className="max-w-[1140px] mx-auto px-6 py-12 md:py-24">
           <div className="max-w-3xl space-y-20">
             
             {/* Om Digilist */}
@@ -175,9 +175,9 @@ export default function BliUtleierPage() {
 
       {/* CTA Section */}
       <ScrollAnimation variant="fadeUp" delay={100}>
-        <section className="bg-gradient-to-br from-primary/4 via-cyan/4 to-success/4 py-16 md:py-24">
+        <section className="bg-gradient-to-br from-primary/4 via-cyan/4 to-success/4 py-12 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Image */}
             <div className="order-2 lg:order-1">
               <div className="relative w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-digdir overflow-hidden">
@@ -212,7 +212,7 @@ export default function BliUtleierPage() {
 
       {/* Gratis demo */}
       <ScrollAnimation variant="scale" delay={100}>
-        <section className="bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 py-16 md:py-24">
+        <section className="bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 py-12 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="bg-white rounded-digdir border-2 border-gray-200 p-8 md:p-12 shadow-sm">
             <div className="max-w-3xl">
@@ -237,7 +237,7 @@ export default function BliUtleierPage() {
 
       {/* Artikler Section */}
       <ScrollAnimation variant="fadeUp" delay={150}>
-        <section className="bg-gradient-to-br from-surface-2 via-white to-sky2/8 py-16 md:py-24">
+        <section className="bg-gradient-to-br from-surface-2 via-white to-sky2/8 py-12 md:py-24">
           <div className="max-w-[1140px] mx-auto px-6">
             <ScrollAnimation variant="fadeUp" delay={0}>
               <Heading level={2} className="mb-12 text-3xl font-bold text-navy">

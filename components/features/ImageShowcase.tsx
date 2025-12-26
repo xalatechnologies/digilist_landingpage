@@ -102,7 +102,7 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
 
   return (
     <Section variant={sectionVariant} className="relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
         {variant === 'left' ? (
           <>
             <div className="order-2 lg:order-1 lg:col-span-5">{imageContent}</div>

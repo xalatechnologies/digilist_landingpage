@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6">
       <div className="max-w-md text-center">
-        <Heading level={1} className="mb-4 text-4xl">
+        <Heading level={1} className="mb-4 text-3xl sm:text-4xl">
           404
         </Heading>
         <Heading level={2} className="mb-4">

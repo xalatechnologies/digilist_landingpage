@@ -67,7 +67,7 @@ export const FeatureGroupsSection: React.FC = () => {
                           aria-hidden="true"
                         />
                       </div>
-                      <span className="text-sm sm:text-base font-medium group-hover/item:text-primary transition-colors duration-180">
+                      <span className="text-base text-navy/70 leading-relaxed group-hover/item:text-primary transition-colors duration-180">
                         {item.title}
                       </span>
                     </li>

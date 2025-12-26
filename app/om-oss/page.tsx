@@ -11,7 +11,6 @@ import {
   Headphones, 
   Palette,
   CheckCircle2,
-  Quote,
   Sparkles,
   ArrowRight
 } from 'lucide-react';
@@ -41,7 +40,7 @@ export default function OmOssPage() {
       <section className="relative overflow-hidden bg-sky2/10">
         
         <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="text-center lg:text-left">
               <motion.div
@@ -94,27 +93,6 @@ export default function OmOssPage() {
                   </Button>
                 </Link>
               </motion.div>
-              
-              {/* Stats as badges */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4, staggerChildren: 0.1 }}
-                className="flex flex-wrap gap-2 justify-center lg:justify-start"
-              >
-                {aboutContent.stats.map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
-                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-sm border border-border shadow-sm whitespace-nowrap shrink-0"
-                  >
-                    <span className="text-xs font-bold text-primary">{stat.number}</span>
-                    <span className="text-xs font-medium text-navy">{stat.label}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
             </div>
             
             {/* Right - Image */}
@@ -160,9 +138,39 @@ export default function OmOssPage() {
       <ScrollAnimation variant="fadeUp" delay={100}>
         <Section variant="rich-primary">
         <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left - Mission Text */}
-          <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left - Image */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative">
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              
+              {/* Main image */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
+                <img 
+                  src="/images/utleieobjekter/kipo-kultursal.jpg" 
+                  alt="Vår misjon"
+                  className="w-full h-auto object-cover aspect-[4/5]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+                
+                {/* Overlay content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="px-2 py-1 bg-primary/90 rounded text-xs font-medium text-white flex items-center gap-1">
+                      <Lightbulb size={12} />
+                      Vår visjon
+                    </div>
+                  </div>
+                  <p className="text-lg font-bold text-white">{aboutContent.mission.quote}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right - Mission Text */}
+          <div className="order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6">
               <Lightbulb size={14} />
               Vår visjon
@@ -184,30 +192,6 @@ export default function OmOssPage() {
                   <span className="text-navy font-medium">{point}</span>
                 </div>
               ))}
-            </div>
-          </div>
-          
-          {/* Right - Quote Card */}
-          <div className="relative">
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-cyan/20 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-            
-            <div className="relative bg-white rounded-2xl p-8 sm:p-10 border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
-              <Quote className="text-primary/20 mb-4" size={48} aria-hidden="true" />
-              <blockquote>
-                <Text variant="lead" className="text-navy font-semibold italic text-xl sm:text-2xl leading-relaxed mb-6">
-                  &ldquo;{aboutContent.mission.quote}&rdquo;
-                </Text>
-              </blockquote>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                  <Heart size={20} className="text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-navy">Digilist Team</p>
-                  <p className="text-sm text-navy/60">Vår filosofi</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

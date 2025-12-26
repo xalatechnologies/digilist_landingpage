@@ -81,7 +81,7 @@ export default function FunksjonalitetPage() {
       <section className="relative overflow-hidden bg-sky2/10">
         
         <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="text-center lg:text-left">
               <motion.div
@@ -136,7 +136,7 @@ export default function FunksjonalitetPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4, staggerChildren: 0.1 }}
-                className="flex flex-wrap gap-2 justify-center lg:justify-start"
+                className="grid grid-cols-2 gap-2 max-w-md"
               >
                 {functionalityContent.highlights.map((highlight, idx) => {
                   const Icon = highlightIcons[idx] || Cloud;

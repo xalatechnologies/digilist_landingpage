@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/om-oss"
-                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                  className="text-sm text-white/90 hover:text-white font-medium transition-colors duration-180"
                 >
                   Om oss
                 </Link>
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/funksjonalitet"
-                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                  className="text-sm text-white/90 hover:text-white font-medium transition-colors duration-180"
                 >
                   Funksjonalitet
                 </Link>
@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/demo"
-                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                  className="text-sm text-white/90 hover:text-white font-medium transition-colors duration-180"
                 >
                   Book demo
                 </Link>
@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/personvern"
-                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                  className="text-sm text-white/90 hover:text-white font-medium transition-colors duration-180"
                 >
                   Personvern
                 </Link>
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/vilkår"
-                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                  className="text-sm text-white/90 hover:text-white font-medium transition-colors duration-180"
                 >
                   Vilkår
                 </Link>
@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
                 href="https://xala.no" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-cyan hover:text-sky1 font-medium inline-flex items-center gap-1 transition-colors duration-180"
+                className="text-success hover:text-success/80 font-medium inline-flex items-center gap-1 transition-colors duration-180"
               >
                 <span>Xala Technologies</span>
                 <ExternalLink size={12} />

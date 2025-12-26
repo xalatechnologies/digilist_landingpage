@@ -40,7 +40,7 @@ export const FeatureOverviewSection: React.FC = () => {
 
   return (
     <Section variant="tinted" id="feature-overview">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
         {features.map((feature, idx) => (
           <FeatureBlobCard
             key={idx}

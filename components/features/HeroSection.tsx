@@ -17,7 +17,7 @@ export const HeroSection: React.FC = () => {
     <section className="relative overflow-hidden bg-sky2/10">
 
       <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Left Column: Text Content */}
           <div className="text-center lg:text-left relative z-10">
@@ -201,7 +201,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
-            className="relative lg:pl-8 flex justify-center lg:justify-end min-h-[500px] lg:min-h-[600px]"
+            className="relative lg:pl-8 flex justify-center lg:justify-end min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
           >
             {/* Mobile-only view */}
             <div className="relative w-[280px] md:w-[320px] lg:hidden group mx-auto">

@@ -84,71 +84,80 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
       <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader title={title} subtitle={subtitle} />
         
-        {/* Category tabs - Compact cards */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {/* Tab 1: Autentisering */}
-        <button
-          onClick={() => setActiveTab(0)}
-          className={`
-            flex items-center gap-3 px-4 py-3 rounded-lg
-            transition-all duration-200 cursor-pointer
-            ${activeTab === 0 
-              ? 'bg-primary text-white shadow-lg' 
-              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
-            }
-          `}
-        >
-          <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${activeTab === 0 ? 'bg-white/20' : 'bg-primary/10'}`}>
-            <Key size={18} className={activeTab === 0 ? 'text-white' : 'text-primary'} />
-          </div>
-          <div className="text-left">
-            <div className={`text-sm font-bold ${activeTab === 0 ? 'text-white' : 'text-navy'}`}>Autentisering</div>
-            <div className={`text-xs ${activeTab === 0 ? 'text-white/70' : 'text-navy/50'}`}>ID-porten, SSO, MFA</div>
-          </div>
-        </button>
+        {/* Category tabs - Selectable options */}
+        <div className="mb-8">
+          <p className="text-center text-sm text-navy/60 mb-4">Velg kategori:</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {/* Tab 1: Autentisering */}
+            <button
+              onClick={() => setActiveTab(0)}
+              className={`
+                flex items-center gap-3 px-5 py-3.5 rounded-lg
+                transition-all duration-200 cursor-pointer min-h-[44px]
+                ${activeTab === 0 
+                  ? 'bg-primary text-white shadow-lg ring-2 ring-primary ring-offset-2' 
+                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/5'
+                }
+              `}
+              aria-pressed={activeTab === 0}
+              aria-label="Velg Autentisering"
+            >
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 0 ? 'bg-white/20' : 'bg-primary/10'}`}>
+                <Key size={18} className={activeTab === 0 ? 'text-white' : 'text-primary'} />
+              </div>
+              <div className="text-left">
+                <div className={`text-sm font-bold ${activeTab === 0 ? 'text-white' : 'text-navy'}`}>Autentisering</div>
+                <div className={`text-xs ${activeTab === 0 ? 'text-white/80' : 'text-navy/60'}`}>ID-porten, SSO, MFA</div>
+              </div>
+            </button>
 
-        {/* Tab 2: Dokumentasjon */}
-        <button
-          onClick={() => setActiveTab(1)}
-          className={`
-            flex items-center gap-3 px-4 py-3 rounded-lg
-            transition-all duration-200 cursor-pointer
-            ${activeTab === 1 
-              ? 'bg-cyan text-white shadow-lg' 
-              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
-            }
-          `}
-        >
-          <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${activeTab === 1 ? 'bg-white/20' : 'bg-cyan/10'}`}>
-            <FileText size={18} className={activeTab === 1 ? 'text-white' : 'text-cyan'} />
-          </div>
-          <div className="text-left">
-            <div className={`text-sm font-bold ${activeTab === 1 ? 'text-white' : 'text-navy'}`}>Dokumentasjon</div>
-            <div className={`text-xs ${activeTab === 1 ? 'text-white/70' : 'text-navy/50'}`}>WCAG, GDPR, DPA</div>
-          </div>
-        </button>
+            {/* Tab 2: Dokumentasjon */}
+            <button
+              onClick={() => setActiveTab(1)}
+              className={`
+                flex items-center gap-3 px-5 py-3.5 rounded-lg
+                transition-all duration-200 cursor-pointer min-h-[44px]
+                ${activeTab === 1 
+                  ? 'bg-cyan text-white shadow-lg ring-2 ring-cyan ring-offset-2' 
+                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-cyan/50 hover:bg-cyan/5'
+                }
+              `}
+              aria-pressed={activeTab === 1}
+              aria-label="Velg Dokumentasjon"
+            >
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 1 ? 'bg-white/20' : 'bg-cyan/10'}`}>
+                <FileText size={18} className={activeTab === 1 ? 'text-white' : 'text-cyan'} />
+              </div>
+              <div className="text-left">
+                <div className={`text-sm font-bold ${activeTab === 1 ? 'text-white' : 'text-navy'}`}>Dokumentasjon</div>
+                <div className={`text-xs ${activeTab === 1 ? 'text-white/80' : 'text-navy/60'}`}>WCAG, GDPR, DPA</div>
+              </div>
+            </button>
 
-        {/* Tab 3: Drift */}
-        <button
-          onClick={() => setActiveTab(2)}
-          className={`
-            flex items-center gap-3 px-4 py-3 rounded-lg
-            transition-all duration-200 cursor-pointer
-            ${activeTab === 2 
-              ? 'bg-success text-white shadow-lg' 
-              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
-            }
-          `}
-        >
-          <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${activeTab === 2 ? 'bg-white/20' : 'bg-success/10'}`}>
-            <Settings size={18} className={activeTab === 2 ? 'text-white' : 'text-success'} />
+            {/* Tab 3: Drift */}
+            <button
+              onClick={() => setActiveTab(2)}
+              className={`
+                flex items-center gap-3 px-5 py-3.5 rounded-lg
+                transition-all duration-200 cursor-pointer min-h-[44px]
+                ${activeTab === 2 
+                  ? 'bg-success text-white shadow-lg ring-2 ring-success ring-offset-2' 
+                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-success/50 hover:bg-success/5'
+                }
+              `}
+              aria-pressed={activeTab === 2}
+              aria-label="Velg Drift"
+            >
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 2 ? 'bg-white/20' : 'bg-success/10'}`}>
+                <Settings size={18} className={activeTab === 2 ? 'text-white' : 'text-success'} />
+              </div>
+              <div className="text-left">
+                <div className={`text-sm font-bold ${activeTab === 2 ? 'text-white' : 'text-navy'}`}>Drift</div>
+                <div className={`text-xs ${activeTab === 2 ? 'text-white/80' : 'text-navy/60'}`}>Support, vedlikehold</div>
+              </div>
+            </button>
           </div>
-          <div className="text-left">
-            <div className={`text-sm font-bold ${activeTab === 2 ? 'text-white' : 'text-navy'}`}>Drift</div>
-            <div className={`text-xs ${activeTab === 2 ? 'text-white/70' : 'text-navy/50'}`}>Support, vedlikehold</div>
-          </div>
-        </button>
-      </div>
+        </div>
       
       {/* Split layout: Card on left, Image on right */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">

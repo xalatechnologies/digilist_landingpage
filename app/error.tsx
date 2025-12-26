@@ -15,7 +15,7 @@ export default function Error({
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6">
       <div className="max-w-md text-center">
-        <Heading level={1} className="mb-4 text-4xl">
+        <Heading level={1} className="mb-4 text-3xl sm:text-4xl">
           Noe gikk galt
         </Heading>
         <Text variant="lead" className="mb-8 text-text-secondary">
