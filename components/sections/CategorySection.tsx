@@ -67,8 +67,10 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   if (!image) {
     return (
       <Section variant={variant} id={id} className={className}>
-        <SectionHeader title={title} subtitle={subtitle} />
-        <CategoryCardGrid categories={categories} columns={columns} />
+        <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <SectionHeader title={title} subtitle={subtitle} />
+          <CategoryCardGrid categories={categories} columns={columns} />
+        </div>
       </Section>
     );
   }
@@ -79,9 +81,10 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
 
   return (
     <Section variant={variant} id={id} className={className}>
-      <SectionHeader title={title} subtitle={subtitle} />
-      
-      {/* Category tabs - Compact cards */}
+      <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
+        <SectionHeader title={title} subtitle={subtitle} />
+        
+        {/* Category tabs - Compact cards */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {/* Tab 1: Autentisering */}
         <button
@@ -184,6 +187,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
           </div>
         </div>
+      </div>
       </div>
     </Section>
   );

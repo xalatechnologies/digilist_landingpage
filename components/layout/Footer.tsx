@@ -6,40 +6,6 @@ import { ExternalLink, Mail, Phone, MapPin } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 
 export const Footer: React.FC = () => {
-  const footerSections = [
-    {
-      title: 'PRODUKT',
-      links: [
-        { href: '/funksjonalitet', label: 'Funksjonalitet' },
-        { href: '/bli-utleier', label: 'Bli utleier' },
-        { href: '/demo', label: 'Book demo' },
-      ],
-    },
-    {
-      title: 'SELSKAP',
-      links: [
-        { href: '/om-oss', label: 'Om oss' },
-        { href: '/partnere', label: 'Partnere' },
-        { href: '/karriere', label: 'Karriere' },
-      ],
-    },
-    {
-      title: 'RESSURSER',
-      links: [
-        { href: '/kunnskapsbase', label: 'Kunnskapsbase' },
-        { href: '/artikler', label: 'Artikler' },
-        { href: '/hjelp', label: 'Hjelp og veiledning' },
-      ],
-    },
-    {
-      title: 'JURIDISK',
-      links: [
-        { href: '/personvern', label: 'Personvern' },
-        { href: '/sikkerhet', label: 'Sikkerhet' },
-        { href: '/vilkår', label: 'Vilkår' },
-      ],
-    },
-  ];
 
   return (
     <footer className="relative bg-gradient-navy text-white mt-auto overflow-hidden" role="contentinfo">
@@ -50,85 +16,117 @@ export const Footer: React.FC = () => {
       {/* Top accent bar */}
       <div className="h-1 bg-gradient-button" />
       
-      <div className="relative container-main py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 md:mb-12">
+      <div className="relative max-w-[1400px] mx-auto px-6 py-8 md:py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Logo and Description */}
-          <div className="md:col-span-2 lg:col-span-1">
-            <div className="mb-4">
-              <Logo size={48} variant="default" className="invert brightness-0 saturate-100" />
-            </div>
-            <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+          <div>
+            <Link 
+              href="/"
+              className="flex items-center cursor-pointer group relative focus-ring rounded-lg mb-3"
+              aria-label="Digilist - Gå til forsiden"
+            >
+              <Logo size={52} variant="text-only" className="group-hover:opacity-90 transition-all duration-180 [&_span]:!text-white" />
+              {/* Subtle glow on hover */}
+              <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-lg transition-colors duration-180" />
+            </Link>
+            <p className="text-gray-300 text-xs mb-4 leading-relaxed">
               Norges smarteste bookingsystem for lokaler, ressurser og arrangementer.
             </p>
             
             {/* Contact info */}
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               <a 
                 href="mailto:kontakt@digilist.no"
-                className="flex items-center gap-2.5 text-sm text-gray-300 hover:text-cyan transition-colors duration-180"
+                className="flex items-center gap-2 text-xs text-gray-300 hover:text-cyan transition-colors duration-180"
               >
-                <Mail size={16} className="text-cyan" />
+                <Mail size={14} className="text-cyan" />
                 <span>kontakt@digilist.no</span>
               </a>
               <a 
                 href="tel:+4722000000"
-                className="flex items-center gap-2.5 text-sm text-gray-300 hover:text-cyan transition-colors duration-180"
+                className="flex items-center gap-2 text-xs text-gray-300 hover:text-cyan transition-colors duration-180"
               >
-                <Phone size={16} className="text-cyan" />
+                <Phone size={14} className="text-cyan" />
                 <span>+47 22 00 00 00</span>
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-gray-300">
-                <MapPin size={16} className="text-cyan" />
-                <span>Oslo, Norge</span>
-              </div>
             </div>
           </div>
 
           {/* Navigation Links */}
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-semibold mb-4 text-white uppercase text-xs tracking-wider">
-                {section.title}
-              </h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link 
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors duration-180"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 className="font-semibold mb-3 text-white uppercase text-xs tracking-wider">
+              Navigasjon
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="/om-oss"
+                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                >
+                  Om oss
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/funksjonalitet"
+                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                >
+                  Funksjonalitet
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/demo"
+                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                >
+                  Book demo
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h4 className="font-semibold mb-3 text-white uppercase text-xs tracking-wider">
+              Juridisk
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="/personvern"
+                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                >
+                  Personvern
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/vilkår"
+                  className="text-xs text-gray-400 hover:text-white transition-colors duration-180"
+                >
+                  Vilkår
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
         
         {/* Bottom section */}
-        <div className="border-t border-white/10 pt-6 md:pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4">
-              <p className="text-sm text-gray-400">
-                © {new Date().getFullYear()} Digilist
-              </p>
-              <div className="hidden md:flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan" />
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
+        <div className="border-t border-white/10 pt-4 md:pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-sm text-white/80 font-medium">
+              © {new Date().getFullYear()} Xala Technologies. Alle rettigheter reservert.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Utviklet av</span>
               <a 
                 href="https://xala.no" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-cyan hover:text-sky1 font-medium inline-flex items-center gap-1.5 transition-colors duration-180"
+                className="text-cyan hover:text-sky1 font-medium inline-flex items-center gap-1 transition-colors duration-180"
               >
                 <span>Xala Technologies</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={12} />
               </a>
             </div>
           </div>

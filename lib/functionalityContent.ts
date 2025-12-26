@@ -352,7 +352,6 @@ export const functionalityContent = {
           "99.9% oppetidsgaranti (SLA)",
           "Daglig backup med 30 dagers retensjon",
           "24/7 overvåking",
-          "Norsk support i arbeidstid",
           "Opplæring og onboarding inkludert",
         ],
       },

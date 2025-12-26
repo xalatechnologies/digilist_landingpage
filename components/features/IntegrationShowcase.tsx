@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { ScrollAnimation, StaggerAnimation } from '@/components/ui/ScrollAnimation';
 
 const integrations = [
   {
@@ -82,8 +83,9 @@ const colorClasses = {
 
 export const IntegrationShowcase: React.FC = () => {
   return (
-    <Section variant="tinted" id="integrasjoner">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+    <Section variant="rich-primary" id="integrasjoner">
+      <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
         {/* Left - Header and CTA */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-24">
@@ -117,7 +119,7 @@ export const IntegrationShowcase: React.FC = () => {
         
         {/* Right - Integration cards grid */}
         <div className="lg:col-span-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {integrations.map((integration, idx) => {
               const colors = colorClasses[integration.color as keyof typeof colorClasses];
               const Icon = integration.icon;
@@ -150,7 +152,8 @@ export const IntegrationShowcase: React.FC = () => {
                 </div>
               );
             })}
-          </div>
+          </StaggerAnimation>
+        </div>
         </div>
       </div>
     </Section>

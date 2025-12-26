@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   Calendar, 
   CreditCard, 
@@ -24,12 +25,15 @@ import {
   Accessibility,
   ShieldCheck,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Settings,
+  Headphones
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import { Heading, Text } from '@/components/ui/Typography';
+import { ScrollAnimation, StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { functionalityContent } from '@/lib/functionalityContent';
 
 const categoryIcons = {
@@ -60,39 +64,62 @@ const useCaseIcons = {
 
 const highlightIcons = [Cloud, Clock, Accessibility, ShieldCheck];
 
+const techSpecIcons = {
+  'Sikkerhet': ShieldCheck,
+  'Personvern': Lock,
+  'Tilgjengelighet': Accessibility,
+  'Drift og support': Settings,
+};
+
 export default function FunksjonalitetPage() {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <div className="bg-bg min-h-screen">
+    <div className="bg-white min-h-screen">
       
       {/* HERO SECTION - Split Layout */}
-      <section className="relative overflow-hidden">
-        {/* Background with brand gradient */}
-        <div className="absolute inset-0 bg-gradient-hero" />
+      <section className="relative overflow-hidden bg-sky2/10">
         
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-        
-        <div className="relative max-w-[1140px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
+        <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-cyan/20 shadow-sm mb-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-cyan/20 shadow-sm mb-6"
+              >
                 <Sparkles size={16} className="text-cyan" />
                 <span className="text-sm font-medium text-navy">Komplett løsning</span>
-              </div>
-              <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl text-navy">
-                {functionalityContent.hero.title}
-              </Heading>
-              <Text variant="lead" className="mb-6 text-base sm:text-lg md:text-xl text-navy/70">
-                {functionalityContent.hero.subtitle}
-              </Text>
-              <Text variant="body" className="text-navy/60 max-w-2xl mb-8">
-                {functionalityContent.hero.description}
-              </Text>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl text-navy">
+                  {functionalityContent.hero.title}
+                </Heading>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Text variant="lead" className="mb-6 text-base sm:text-lg md:text-xl text-navy/70">
+                  {functionalityContent.hero.subtitle}
+                </Text>
+                <Text variant="body" className="text-navy/60 max-w-2xl mb-8">
+                  {functionalityContent.hero.description}
+                </Text>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8"
+              >
                 <Link href="/demo">
                   <Button variant="gradient" size="lg" className="w-full sm:w-auto group">
                     Book demo
@@ -102,28 +129,41 @@ export default function FunksjonalitetPage() {
                 <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                   Ta kontakt
                 </Button>
-              </div>
+              </motion.div>
               
               {/* Highlight badges */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4, staggerChildren: 0.1 }}
+                className="flex flex-wrap gap-2 justify-center lg:justify-start"
+              >
                 {functionalityContent.highlights.map((highlight, idx) => {
                   const Icon = highlightIcons[idx] || Cloud;
                   return (
-                    <div 
+                    <motion.div
                       key={idx}
-                      className="flex items-center gap-2 px-3 py-2 bg-white/80 backdrop-blur-sm rounded-lg border border-border shadow-sm"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
+                      className="flex items-center gap-1.5 px-2.5 py-1 bg-white/80 backdrop-blur-sm rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
                     >
-                      <Icon size={16} className="text-primary" />
-                      <span className="text-sm font-medium text-navy">{highlight.number}</span>
+                      <Icon size={14} className="text-primary" />
+                      <span className="text-xs font-medium text-navy">{highlight.number}</span>
                       <span className="text-xs text-navy/60">{highlight.label}</span>
-                    </div>
+                    </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
             
             {/* Right - Dashboard Mockup */}
-            <div className="relative hidden lg:block">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+              className="relative hidden lg:block"
+            >
               <div className="relative">
                 {/* Decorative elements */}
                 <div className="absolute -top-8 -right-8 w-32 h-32 bg-cyan/10 rounded-full blur-2xl" />
@@ -206,31 +246,33 @@ export default function FunksjonalitetPage() {
                 </div>
                 
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* FEATURE CATEGORIES - Tabbed Navigation */}
-      <Section variant="tinted" id="funksjoner">
-        <SectionHeader
-          title="Alle funksjoner"
-          subtitle="Utforsk funksjonaliteten i detalj"
-          badge="Funksjoner"
-        />
-        
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+      <ScrollAnimation variant="fadeUp" delay={100}>
+        <Section variant="rich-primary" id="funksjoner">
+        <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <SectionHeader
+            title="Alle funksjoner"
+            subtitle="Utforsk funksjonaliteten i detalj"
+            badge="Funksjoner"
+          />
+          
+          {/* Category Tabs */}
+        <StaggerAnimation staggerDelay={0.1} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
           {functionalityContent.categories.map((category, idx) => {
             const Icon = categoryIcons[category.icon as keyof typeof categoryIcons] || Calendar;
             return (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(idx)}
-                className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all duration-300 min-h-[44px] ${
+                className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-all duration-300 ease-smooth min-h-[44px] ${
                   activeCategory === idx
-                    ? 'bg-gradient-to-r from-primary to-cyan text-white shadow-lg shadow-cyan/20'
-                    : 'bg-white text-navy border-2 border-sky2/50 hover:border-cyan hover:text-primary'
+                    ? 'bg-primary text-white shadow-lg'
+                    : 'bg-white text-navy border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan hover:text-primary'
                 }`}
               >
                 <Icon size={18} aria-hidden="true" />
@@ -239,24 +281,25 @@ export default function FunksjonalitetPage() {
               </button>
             );
           })}
-        </div>
+        </StaggerAnimation>
 
         {/* Active Category Content */}
-        <div className="bg-gradient-to-br from-white to-sky2/20 rounded-lg p-6 sm:p-8 shadow-lg border-2 border-sky2/50">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-navy mb-2">
-              {functionalityContent.categories[activeCategory].title}
-            </h3>
-            <p className="text-navy/60">
-              {functionalityContent.categories[activeCategory].subtitle}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {functionalityContent.categories[activeCategory].features.map((feature, idx) => (
+        <ScrollAnimation variant="scale" delay={150}>
+          <div className="rounded-lg p-6 sm:p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold text-navy mb-2">
+                {functionalityContent.categories[activeCategory].title}
+              </h3>
+              <p className="text-navy/60">
+                {functionalityContent.categories[activeCategory].subtitle}
+              </p>
+            </div>
+            
+            <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-8 sm:mt-12 items-stretch">
+              {functionalityContent.categories[activeCategory].features.map((feature, idx) => (
               <div 
                 key={idx}
-                className="p-5 sm:p-6 rounded-lg bg-white border-2 border-sky2/30 hover:shadow-lg hover:border-cyan/50 transition-all duration-300"
+                className="p-6 sm:p-8 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full flex flex-col"
               >
                 <h4 className="text-lg font-bold text-navy mb-2 flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
@@ -264,10 +307,10 @@ export default function FunksjonalitetPage() {
                   </div>
                   {feature.title}
                 </h4>
-                <p className="text-sm text-navy/60 mb-4 leading-relaxed">
+                <p className="text-sm text-navy/60 mb-4 leading-relaxed flex-shrink-0">
                   {feature.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 flex-1">
                   {feature.benefits.map((benefit, benefitIdx) => (
                     <li key={benefitIdx} className="flex items-start gap-2 text-sm">
                       <ChevronRight className="text-cyan shrink-0 mt-0.5" size={14} aria-hidden="true" />
@@ -277,12 +320,17 @@ export default function FunksjonalitetPage() {
                 </ul>
               </div>
             ))}
+            </StaggerAnimation>
           </div>
+        </ScrollAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* VISUAL SHOWCASE - Image Feature Section */}
-      <Section variant="tinted" className="relative overflow-hidden">
+      <ScrollAnimation variant="fadeLeft" delay={100}>
+        <Section variant="rich-cyan" className="relative overflow-hidden">
+        <div className="bg-cyan/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Image/Visual */}
           <div className="relative order-2 lg:order-1">
@@ -310,21 +358,6 @@ export default function FunksjonalitetPage() {
                   </div>
                   <h4 className="text-xl font-bold text-white mb-1">KIPO Kultursal</h4>
                   <p className="text-sm text-white/70">Perfekt for konserter, teater og events</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating stats card */}
-            <div className="absolute -right-4 -bottom-4 bg-white rounded-xl shadow-xl p-4 border border-border hidden sm:block">
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">98%</div>
-                  <div className="text-xs text-navy/50">Fornøyde</div>
-                </div>
-                <div className="w-px h-10 bg-border" />
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-success">50+</div>
-                  <div className="text-xs text-navy/50">Kunder</div>
                 </div>
               </div>
             </div>
@@ -370,10 +403,14 @@ export default function FunksjonalitetPage() {
             </div>
           </div>
         </div>
+        </div>
       </Section>
+      </ScrollAnimation>
 
       {/* INTEGRATIONS */}
-      <Section variant="gradient" id="integrasjoner">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="rich-sky" id="integrasjoner">
+        <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader
           title={functionalityContent.integrations.title}
           subtitle={functionalityContent.integrations.subtitle}
@@ -381,7 +418,7 @@ export default function FunksjonalitetPage() {
         />
         
         {/* Integration Groups */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <StaggerAnimation staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {functionalityContent.integrations.groups.map((group) => {
             const GroupIcon = integrationIcons[group.icon as keyof typeof integrationIcons] || Globe;
             return (
@@ -389,18 +426,19 @@ export default function FunksjonalitetPage() {
                 key={group.id}
                 className="
                   rounded-lg overflow-hidden
-                  bg-gradient-to-br from-white to-sky2/20
+                  bg-white
                   border-2 border-sky2/50 shadow-lg
-                  hover:shadow-xl hover:border-cyan
-                  transition-all duration-300
+                  hover:shadow-xl hover:-translate-y-2 hover:border-cyan
+                  transition-all duration-300 ease-smooth cursor-pointer overflow-hidden
                 "
               >
                 {/* Group Header */}
-                <div className="p-4 sm:p-5 bg-gradient-to-r from-primary/5 to-cyan/5 border-b border-sky2/50">
+                <div className="p-4 sm:p-5">
                   <div className="flex items-center gap-3">
                     <div className="
                       w-10 h-10 rounded-lg bg-primary
-                      flex items-center justify-center shadow-md
+                      flex items-center justify-center shadow-lg
+                      group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth
                     ">
                       <GroupIcon className="text-white" size={20} aria-hidden="true" />
                     </div>
@@ -418,15 +456,17 @@ export default function FunksjonalitetPage() {
                         className="
                           flex items-start gap-3 p-3 rounded-lg
                           bg-white/50 hover:bg-white
-                          border border-transparent hover:border-cyan/30
-                          transition-all duration-200 group/item cursor-pointer
+                          border border-sky2/30 hover:border-sky2/60
+                          shadow-sm hover:shadow-md hover:-translate-y-1
+                          transition-all duration-300 ease-smooth group/item cursor-pointer
                         "
                       >
                         <div className="
                           w-10 h-10 rounded-lg bg-primary/10
-                          flex items-center justify-center shrink-0
+                          flex items-center justify-center shrink-0 shadow-lg
                           group-hover/item:bg-gradient-to-br group-hover/item:from-primary group-hover/item:to-cyan
-                          transition-all duration-200
+                          group-hover/item:scale-110 group-hover/item:rotate-3
+                          transition-all duration-300 ease-smooth
                         ">
                           <Icon 
                             className="text-primary group-hover/item:text-white transition-colors duration-200" 
@@ -449,33 +489,45 @@ export default function FunksjonalitetPage() {
               </div>
             );
           })}
+        </StaggerAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* TECH SPECS */}
-      <Section variant="tinted" id="teknisk">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="rich-primary" id="teknisk">
+        <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader
           title={functionalityContent.techSpecs.title}
           subtitle={functionalityContent.techSpecs.subtitle}
           badge="Teknisk"
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {functionalityContent.techSpecs.specs.map((spec, idx) => (
+        <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          {functionalityContent.techSpecs.specs.map((spec, idx) => {
+            const Icon = techSpecIcons[spec.category as keyof typeof techSpecIcons] || Shield;
+            const colors = ['bg-primary', 'bg-cyan', 'bg-success', 'bg-primary'];
+            return (
             <div 
               key={idx} 
               className="
                 rounded-lg p-6 sm:p-8
-                bg-gradient-to-br from-white to-sky2/20
+                bg-white
                 border-2 border-sky2/50 shadow-lg
-                hover:shadow-xl hover:border-cyan transition-all duration-300
-                group cursor-pointer
+                hover:shadow-xl hover:-translate-y-2 hover:border-cyan 
+                transition-all duration-300 ease-smooth
+                group cursor-pointer overflow-hidden
+                h-full flex flex-col
               "
             >
-              <h3 className="text-lg font-bold text-navy mb-4 pb-3 border-b-2 border-sky2/50 group-hover:text-primary transition-colors duration-180">
+              <h3 className="text-lg font-bold text-navy mb-4 pb-3 border-b-2 border-sky2/50 group-hover:text-primary transition-colors duration-180 flex items-center gap-2">
+                <div className={`w-6 h-6 rounded-full ${colors[idx % colors.length]} flex items-center justify-center`}>
+                  <Icon className="text-white" size={14} aria-hidden="true" />
+                </div>
                 {spec.category}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 flex-1">
                 {spec.specs.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="text-cyan shrink-0 mt-0.5" size={16} aria-hidden="true" />
@@ -484,19 +536,24 @@ export default function FunksjonalitetPage() {
                 ))}
               </ul>
             </div>
-          ))}
+            );
+          })}
+        </StaggerAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* USE CASES - With Images */}
-      <Section variant="default" id="bruksomrader">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="gradient" id="bruksomrader">
+        <div className="bg-cyan/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader
           title={functionalityContent.useCases.title}
           subtitle={functionalityContent.useCases.subtitle}
           badge="Bruksområder"
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <StaggerAnimation staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {functionalityContent.useCases.items.map((useCase, idx) => {
             const Icon = useCaseIcons[useCase.title as keyof typeof useCaseIcons] || Building2;
             const images = [
@@ -511,10 +568,10 @@ export default function FunksjonalitetPage() {
                 key={idx} 
                 className="
                   rounded-xl overflow-hidden
-                  bg-gradient-to-br from-white to-sky2/20
+                  bg-white
                   border-2 border-sky2/50 shadow-lg
-                  hover:shadow-xl hover:border-cyan
-                  transition-all duration-300 group
+                  hover:shadow-xl hover:-translate-y-2 hover:border-cyan
+                  transition-all duration-300 ease-smooth group cursor-pointer overflow-hidden
                 "
               >
                 {/* Image section */}
@@ -529,7 +586,7 @@ export default function FunksjonalitetPage() {
                     <div className="
                       w-12 h-12 rounded-xl bg-primary
                       flex items-center justify-center
-                      shadow-lg
+                      shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth
                     ">
                       <Icon className="text-white" size={24} aria-hidden="true" />
                     </div>
@@ -543,14 +600,14 @@ export default function FunksjonalitetPage() {
                 
                 {/* Content section */}
                 <div className="p-6">
-                  <p className="text-sm text-navy/70 mb-4 leading-relaxed">
+                  <p className="text-sm text-navy mb-4 leading-relaxed">
                     {useCase.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {useCase.features.map((feature, featureIdx) => (
                       <span 
                         key={featureIdx}
-                        className="px-3 py-1.5 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        className="px-3 py-1.5 text-xs font-medium bg-sky2/10 text-navy/60 rounded-full border border-sky2/20"
                       >
                         {feature}
                       </span>
@@ -560,11 +617,15 @@ export default function FunksjonalitetPage() {
               </div>
             );
           })}
+        </StaggerAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* CTA SECTION */}
-      <Section variant="gradient">
+      <ScrollAnimation variant="scale" delay={100}>
+        <Section variant="gradient">
+        <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 md:p-10">
         <div className="text-center px-4 sm:px-0">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-cyan/20 shadow-sm mb-6">
             <Sparkles size={16} className="text-cyan" />
@@ -598,13 +659,11 @@ export default function FunksjonalitetPage() {
               <div className="w-2 h-2 rounded-full bg-cyan" />
               <span className="text-sm text-navy/50">Ingen binding</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-primary" />
-              <span className="text-sm text-navy/50">Norsk support</span>
-            </div>
           </div>
         </div>
+        </div>
       </Section>
+      </ScrollAnimation>
     </div>
   );
 }

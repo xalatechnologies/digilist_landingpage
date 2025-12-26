@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface SectionProps {
   children: React.ReactNode;
-  variant?: 'default' | 'tinted' | 'gradient' | 'alt' | 'dark';
+  variant?: 'default' | 'tinted' | 'gradient' | 'alt' | 'dark' | 'rich-primary' | 'rich-cyan' | 'rich-sky';
   className?: string;
   id?: string;
 }
@@ -20,6 +20,9 @@ export const Section: React.FC<SectionProps> = ({
     gradient: 'section-gradient',
     alt: 'section-alt',
     dark: 'section-dark',
+    'rich-primary': 'section-rich-primary',
+    'rich-cyan': 'section-rich-cyan',
+    'rich-sky': 'section-rich-sky',
   };
 
   // If className contains a background class, don't apply variant background

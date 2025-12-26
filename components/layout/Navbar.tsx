@@ -59,7 +59,7 @@ export const Navbar: React.FC = () => {
       role="navigation"
       aria-label="Hovednavigasjon"
     >
-      <div className="container-main">
+      <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex justify-between items-center h-[80px]">
           
           {/* Logo */}

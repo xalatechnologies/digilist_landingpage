@@ -3,38 +3,57 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { Handshake, CheckCircle2, Zap, GraduationCap, Headphones, Settings, ArrowRight, ExternalLink } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Heading } from '@/components/ui/Typography';
 import { Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { ScrollAnimation, StaggerAnimation } from '@/components/ui/ScrollAnimation';
 
 export default function BliUtleierPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-green-50 via-green-50/50 to-white pt-16 pb-24 md:pt-20 md:pb-32">
-        <div className="max-w-[1140px] mx-auto px-6">
+      <section className="relative bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 pt-16 pb-24 md:pt-20 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column: Text Content */}
             <div>
-              <Heading level={1} className="mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight text-gray-900">
-                Bli utleier
-              </Heading>
-              <Text variant="lead" className="mb-8 text-lg md:text-xl text-gray-700 leading-relaxed">
-                Registrer deg som utleier på Digilist og få full kontroll over utleieobjektene dine. 
-                Administrer bookinger, forenkle administrasjonen og gi leietakere en enkel og trygg 
-                bookingopplevelse.
-              </Text>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Heading level={1} className="mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight text-navy">
+                  Bli utleier
+                </Heading>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Text variant="lead" className="mb-8 text-lg md:text-xl text-navy/70 leading-relaxed">
+                  Registrer deg som utleier på Digilist og få full kontroll over utleieobjektene dine. 
+                  Administrer bookinger, forenkle administrasjonen og gi leietakere en enkel og trygg 
+                  bookingopplevelse.
+                </Text>
+              </motion.div>
             </div>
 
             {/* Right Column: Icon */}
-            <div className="flex justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+              className="flex justify-center lg:justify-end"
+            >
               <div className="w-64 h-64 flex items-center justify-center">
-                <Handshake size={120} className="text-green-600" strokeWidth={1.5} aria-hidden="true" />
+                <Handshake size={120} className="text-primary" strokeWidth={1.5} aria-hidden="true" />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -45,10 +64,11 @@ export default function BliUtleierPage() {
           <div className="max-w-3xl space-y-20">
             
             {/* Om Digilist */}
-            <section>
-              <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Om Digilist
-              </Heading>
+            <ScrollAnimation variant="fadeUp" delay={100}>
+              <section>
+                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                  Om Digilist
+                </Heading>
               <div className="space-y-4">
                 <Text variant="body" className="text-base text-gray-800 leading-relaxed">
                   Digilist er en pålitelig og dokumentert løsning som har generert betydelig verdi for 
@@ -66,14 +86,16 @@ export default function BliUtleierPage() {
                   </Link>
                 </div>
               </div>
-            </section>
+              </section>
+            </ScrollAnimation>
 
             {/* Fleksibelt og raskt */}
-            <section>
-              <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Fleksibelt og raskt å sette opp for din organisasjon
-              </Heading>
-              <Text variant="body" className="text-base text-gray-800 leading-relaxed">
+            <ScrollAnimation variant="fadeUp" delay={150}>
+              <section>
+                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                  Fleksibelt og raskt å sette opp for din organisasjon
+                </Heading>
+                <Text variant="body" className="text-base text-navy/70 leading-relaxed">
                 Digilist tilbyr en komplett utleieplattform som dekker alle behov for utleie og 
                 administrasjon. Løsningen er skybasert, alltid oppdatert, og lar deg enkelt importere 
                 kalendertider via URL. Du kan komme i gang raskt og enkelt uten behov for omfattende 
@@ -82,48 +104,54 @@ export default function BliUtleierPage() {
             </section>
 
             {/* E-lærings videoer */}
-            <section>
-              <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                E-lærings videoer og kurs
-              </Heading>
-              <div className="space-y-4">
-                <Text variant="body" className="text-base text-gray-800 leading-relaxed">
-                  Som kunde får du tilgang til e-lærings videoer, regelmessige oppdateringer og all 
-                  nødvendig informasjon. Vi tilbyr også kurs og workshops som kan arrangeres fysisk 
-                  eller via videomøte, slik at du og teamet ditt får best mulig opplæring.
-                </Text>
-                <div>
-                  <Link 
-                    href="/kunnskapsbase" 
-                    className="inline-flex items-center gap-2 text-action-blue hover:text-interaction-hover hover:underline underline-offset-4 decoration-2 transition-colors font-normal text-base"
-                  >
-                    Les mer her: Brukerveiledning
-                    <ExternalLink size={16} aria-hidden="true" />
-                  </Link>
+            <ScrollAnimation variant="fadeUp" delay={150}>
+              <section>
+                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                  E-lærings videoer og kurs
+                </Heading>
+                <div className="space-y-4">
+                  <Text variant="body" className="text-base text-navy/70 leading-relaxed">
+                    Som kunde får du tilgang til e-lærings videoer, regelmessige oppdateringer og all 
+                    nødvendig informasjon. Vi tilbyr også kurs og workshops som kan arrangeres fysisk 
+                    eller via videomøte, slik at du og teamet ditt får best mulig opplæring.
+                  </Text>
+                  <div>
+                    <Link 
+                      href="/kunnskapsbase" 
+                      className="inline-flex items-center gap-2 text-primary hover:text-cyan hover:underline underline-offset-4 decoration-2 transition-colors font-normal text-base"
+                    >
+                      Les mer her: Brukerveiledning
+                      <ExternalLink size={16} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </ScrollAnimation>
+            </ScrollAnimation>
 
             {/* Support */}
-            <section>
-              <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Support på både norsk og engelsk
-              </Heading>
-              <Text variant="body" className="text-base text-gray-800 leading-relaxed">
+            <ScrollAnimation variant="fadeUp" delay={150}>
+              <section>
+                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                  Support på både norsk og engelsk
+                </Heading>
+                <Text variant="body" className="text-base text-navy/70 leading-relaxed">
                 Digilist har intern norsk- og engelskspråklig support tilgjengelig på hverdager 
                 fra 08:00-16:00. Vi bruker moderne systemer for saksregistrering og oppfølging, 
                 automatisk varsling av supportpersonell, og mange saker løses direkte av 
                 førstelinjeskupport. For mer komplekse saker bistår våre utviklere.
-              </Text>
-            </section>
+                </Text>
+              </section>
+            </ScrollAnimation>
 
             {/* Et hav av funksjoner */}
-            <section>
-              <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Et hav av funksjoner
-              </Heading>
-              <div className="space-y-4">
-                <Text variant="body" className="text-base text-gray-800 leading-relaxed">
+            <ScrollAnimation variant="fadeUp" delay={150}>
+              <section>
+                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                  Et hav av funksjoner
+                </Heading>
+                <div className="space-y-4">
+                  <Text variant="body" className="text-base text-navy/70 leading-relaxed">
                   Digilist er dedikert til å levere en forbedret brukeropplevelse og er forpliktet til 
                   kvalitet og innovasjon. Vi forsikrer deg om at Digilist vil fortsette å utvikle seg 
                   for å møte fremtidige behov og gi deg best mulig verktøy for utleieadministrasjon.
@@ -138,14 +166,16 @@ export default function BliUtleierPage() {
                   </Link>
                 </div>
               </div>
-            </section>
+              </section>
+            </ScrollAnimation>
 
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <section className="bg-green-50 py-16 md:py-24">
+      <ScrollAnimation variant="fadeUp" delay={100}>
+        <section className="bg-gradient-to-br from-primary/4 via-cyan/4 to-success/4 py-16 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -178,9 +208,11 @@ export default function BliUtleierPage() {
           </div>
         </div>
       </section>
+      </ScrollAnimation>
 
       {/* Gratis demo */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+      <ScrollAnimation variant="scale" delay={100}>
+        <section className="bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 py-16 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="bg-white rounded-digdir border-2 border-gray-200 p-8 md:p-12 shadow-sm">
             <div className="max-w-3xl">
@@ -201,14 +233,18 @@ export default function BliUtleierPage() {
           </div>
         </div>
       </section>
+      </ScrollAnimation>
 
       {/* Artikler Section */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-[1140px] mx-auto px-6">
-          <Heading level={2} className="mb-12 text-3xl font-bold text-gray-900">
-            Artikler
-          </Heading>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <section className="bg-gradient-to-br from-surface-2 via-white to-sky2/8 py-16 md:py-24">
+          <div className="max-w-[1140px] mx-auto px-6">
+            <ScrollAnimation variant="fadeUp" delay={0}>
+              <Heading level={2} className="mb-12 text-3xl font-bold text-navy">
+                Artikler
+              </Heading>
+            </ScrollAnimation>
+            <StaggerAnimation staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Article 1 */}
             <Link href="/artikler/sikkerhetsrutiner" className="group">
               <div className="bg-green-50 hover:bg-green-100 rounded-digdir overflow-hidden border-2 border-gray-200 hover:border-action-blue hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
@@ -304,9 +340,10 @@ export default function BliUtleierPage() {
                 </div>
               </div>
             </Link>
+            </StaggerAnimation>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollAnimation>
     </div>
   );
 }

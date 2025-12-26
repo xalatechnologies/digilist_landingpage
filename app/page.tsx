@@ -11,6 +11,7 @@ import {
   CategorySection, 
   CtaSection 
 } from '@/components/sections';
+import { ScrollAnimation } from '@/components/ui/ScrollAnimation';
 import { homeContent } from '@/lib/homeContent';
 
 export default function HomePage() {
@@ -21,81 +22,101 @@ export default function HomePage() {
       <HeroSection />
 
       {/* 2. TRUST BAR */}
-      <TrustBar />
+      <ScrollAnimation variant="fadeUp" delay={100}>
+        <TrustBar />
+      </ScrollAnimation>
 
       {/* 3. HVEM PASSER DET FOR */}
-      <AudienceSection />
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <AudienceSection />
+      </ScrollAnimation>
 
       {/* 4. FUNKSJONER - 4 grupper */}
-      <FeatureGroupsSection />
+      <ScrollAnimation variant="fadeUp" delay={200}>
+        <FeatureGroupsSection />
+      </ScrollAnimation>
 
       {/* 5. KRAVDEKNING PÅ 60 SEKUNDER */}
-      <CategorySection
-        id="kravdekning"
-        title={homeContent.publicSectorRequirements.title}
-        subtitle={homeContent.publicSectorRequirements.subtitle}
-        categories={homeContent.publicSectorRequirements.categories}
-        variant="default"
-        columns={3}
-        image="/images/utleieobjekter/flytende-badstua-ulefoss.jpg"
-        imageAlt="Offentlig sektor løsning"
-      />
+      <ScrollAnimation variant="scale" delay={100}>
+        <CategorySection
+          id="kravdekning"
+          title={homeContent.publicSectorRequirements.title}
+          subtitle={homeContent.publicSectorRequirements.subtitle}
+          categories={homeContent.publicSectorRequirements.categories}
+          variant="rich-sky"
+          columns={3}
+          image="/images/utleieobjekter/flytende-badstua-ulefoss.jpg"
+          imageAlt="Offentlig sektor løsning"
+        />
+      </ScrollAnimation>
 
       {/* 6. SLIK FUNGERER DET - 4 steg */}
-      <HowItWorksSection />
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <HowItWorksSection />
+      </ScrollAnimation>
 
       {/* 6.5. IMAGE SHOWCASE */}
-      <ImageShowcase
-        variant="left"
-        sectionVariant="default"
-        badge="Se det i praksis"
-        title="Fra kultursal til idrettshall"
-        description="Digilist gir deg full oversikt over alle utleieobjekter. Se tilgjengelighet i sanntid, administrer bookinger enkelt, og la brukerne selv finne og booke ledige lokaler."
-        features={[
-          'Visuell kalender med drag-and-drop',
-          'Automatiske bekreftelser og påminnelser',
-          'Integrert betalingsløsning',
-          'Rapporter og statistikk',
-        ]}
-        image="/images/utleieobjekter/kipo-kultursal.jpg"
-        imageAlt="Kultursal booking eksempel"
-        ctaText="Se demo"
-        ctaHref="/demo"
-      />
+      <ScrollAnimation variant="fadeLeft" delay={100}>
+        <ImageShowcase
+          variant="left"
+          sectionVariant="rich-primary"
+          badge="Se det i praksis"
+          title="Fra kultursal til idrettshall"
+          description="Digilist gir deg full oversikt over alle utleieobjekter. Se tilgjengelighet i sanntid, administrer bookinger enkelt, og la brukerne selv finne og booke ledige lokaler."
+          features={[
+            'Visuell kalender med drag-and-drop',
+            'Automatiske bekreftelser og påminnelser',
+            'Integrert betalingsløsning',
+            'Rapporter og statistikk',
+          ]}
+          image="/images/utleieobjekter/kipo-kultursal.jpg"
+          imageAlt="Kultursal booking eksempel"
+          ctaText="Se demo"
+          ctaHref="/demo"
+        />
+      </ScrollAnimation>
 
       {/* 7. INTEGRASJONER */}
-      <IntegrationShowcase />
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <IntegrationShowcase />
+      </ScrollAnimation>
 
       {/* 7.5. IMAGE SHOWCASE - Right variant */}
-      <ImageShowcase
-        variant="right"
-        sectionVariant="default"
-        badge="Fleksibel løsning"
-        title="Tilpasset dine behov"
-        description="Enten du driver et kulturhus, idrettsanlegg eller konferansesenter – Digilist skalerer med dine behov og tilpasses din organisasjon."
-        features={[
-          'Egen branding og profil',
-          'Tilpassbare bookingskjemaer',
-          'Flerspråklig støtte',
-          'Rollebasert tilgangsstyring',
-        ]}
-        image="/images/utleieobjekter/gyllenborg-idrettshall.jpg"
-        imageAlt="Idrettshall booking eksempel"
-        ctaText="Les mer om funksjonalitet"
-        ctaHref="/funksjonalitet"
-      />
+      <ScrollAnimation variant="fadeRight" delay={100}>
+        <ImageShowcase
+          variant="right"
+          sectionVariant="rich-cyan"
+          badge="Fleksibel løsning"
+          title="Tilpasset dine behov"
+          description="Enten du driver et kulturhus, idrettsanlegg eller konferansesenter – Digilist skalerer med dine behov og tilpasses din organisasjon."
+          features={[
+            'Egen branding og profil',
+            'Tilpassbare bookingskjemaer',
+            'Flerspråklig støtte',
+            'Rollebasert tilgangsstyring',
+          ]}
+          image="/images/utleieobjekter/gyllenborg-idrettshall.jpg"
+          imageAlt="Idrettshall booking eksempel"
+          ctaText="Les mer om funksjonalitet"
+          ctaHref="/funksjonalitet"
+        />
+      </ScrollAnimation>
 
       {/* 8. TRYGG DRIFT - Tabs */}
-      <OperationsTabsSection />
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <OperationsTabsSection />
+      </ScrollAnimation>
 
       {/* 9. SLUTT-CTA */}
-      <CtaSection
-        title={homeContent.cta.final.title}
-        description={homeContent.cta.final.description}
-        primaryCta={homeContent.cta.final.primary}
-        secondaryCta={homeContent.cta.final.secondary}
-        variant="default"
-      />
+      <ScrollAnimation variant="scale" delay={100}>
+        <CtaSection
+          title={homeContent.cta.final.title}
+          description={homeContent.cta.final.description}
+          primaryCta={homeContent.cta.final.primary}
+          secondaryCta={homeContent.cta.final.secondary}
+          variant="gradient"
+        />
+      </ScrollAnimation>
     </div>
   );
 }

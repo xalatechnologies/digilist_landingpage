@@ -110,8 +110,8 @@
   --ds-size-20: 5rem;         /* 80px */
   --ds-size-24: 6rem;         /* 96px */
 
-  --s-section: 6rem;          /* 96px section padding */
-  --s-section-sm: 4rem;       /* 64px smaller section */
+  --s-section: 3rem;          /* 48px section padding */
+  --s-section-sm: 2rem;       /* 32px smaller section */
   --s-container: 1140px;      /* Max container width */
 
   /* ============================================

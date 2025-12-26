@@ -294,4 +294,3 @@ export const Card = Object.assign(CardRoot, {
 
 // Named exports for backwards compatibility
 export { CardLink };
-export type { CardBlockProps, CardHeaderProps, CardFooterProps, CardMediaProps };

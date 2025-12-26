@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { Calendar, CreditCard, Shield, Palette, Check, ArrowRight, Sparkles } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { SectionHeader } from '@/components/sections/SectionHeader';
+import { StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { homeContent } from '@/lib/homeContent';
 
 const groupIcons = [Calendar, CreditCard, Shield, Palette];
 
 export const FeatureGroupsSection: React.FC = () => {
   return (
-    <Section variant="default" id="funksjoner">
-      <div>
+    <Section variant="rich-cyan" id="funksjoner">
+      <div className="bg-cyan/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader
           title="Funksjoner"
           subtitle="Alt du trenger for å administrere bookinger, ressurser og arrangementer"
@@ -20,7 +21,7 @@ export const FeatureGroupsSection: React.FC = () => {
         />
         
         {/* 2x2 Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-8 sm:mt-12">
+        <StaggerAnimation staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-8 sm:mt-12 items-stretch">
           {homeContent.featureGroups.map((group, groupIdx) => {
             const Icon = groupIcons[groupIdx] || Calendar;
             
@@ -32,11 +33,11 @@ export const FeatureGroupsSection: React.FC = () => {
                   rounded-xl border-2 border-sky2/50 p-6 sm:p-8 
                   shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan
                   transition-all duration-300 ease-smooth group cursor-pointer
-                  overflow-hidden
+                  overflow-hidden h-full flex flex-col
                 "
               >
                 {/* Header with icon and title */}
-                <div className="flex items-start gap-4 mb-6">
+                <div className="flex items-start gap-4 mb-6 flex-shrink-0">
                   <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                     <Icon className="text-white" size={28} aria-hidden="true" />
                   </div>
@@ -52,7 +53,7 @@ export const FeatureGroupsSection: React.FC = () => {
                 </div>
                 
                 {/* Feature list */}
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
                   {group.items.map((item, idx) => (
                     <li 
                       key={idx} 
@@ -75,7 +76,7 @@ export const FeatureGroupsSection: React.FC = () => {
               </div>
             );
           })}
-        </div>
+        </StaggerAnimation>
         
         {/* CTA */}
         <div className="mt-10 sm:mt-12 text-center">
@@ -86,29 +87,6 @@ export const FeatureGroupsSection: React.FC = () => {
             Se alle funksjoner i detalj
             <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-180" aria-hidden="true" />
           </Link>
-        </div>
-        
-        {/* Stats */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {[
-            { number: '12+', label: 'Booking-funksjoner', color: 'text-primary' },
-            { number: '100%', label: 'Norsk support', color: 'text-cyan' },
-            { number: '24/7', label: 'Tilgjengelig', color: 'text-success' },
-            { number: 'GDPR', label: 'Kompatibel', color: 'text-purple-600' },
-          ].map((stat, idx) => (
-            <div 
-              key={idx}
-              className="
-                text-center p-4 sm:p-6 rounded-lg 
-                bg-surface/80 backdrop-blur-sm border-2 border-sky2/50
-                shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan
-                transition-all duration-300 ease-smooth
-              "
-            >
-              <div className={`text-2xl sm:text-3xl font-bold ${stat.color} mb-1`}>{stat.number}</div>
-              <div className="text-xs sm:text-sm text-text-secondary font-medium">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </Section>

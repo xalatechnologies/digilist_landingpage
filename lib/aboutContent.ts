@@ -43,7 +43,6 @@ export const aboutContent = {
     { number: "50+", label: "Kunder" },
     { number: "10 000+", label: "Bookinger per måned" },
     { number: "99.9%", label: "Oppetid" },
-    { number: "100%", label: "Norsk support" },
   ] as Stat[],
 
   values: [
@@ -81,7 +80,7 @@ export const aboutContent = {
       {
         name: "Supportteam",
         role: "Kundeservice",
-        description: "100% norsk support med rask responstid og personlig oppfølging.",
+        description: "Rask responstid og personlig oppfølging.",
       },
       {
         name: "Designteam",

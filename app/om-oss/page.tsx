@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import type { Metadata } from 'next';
+import { motion } from 'framer-motion';
 import { 
   Heart, 
   Shield, 
@@ -18,12 +20,9 @@ import { Section } from '@/components/layout/Section';
 import { SectionHeader } from '@/components/sections/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import { Heading, Text } from '@/components/ui/Typography';
+import { ScrollAnimation, StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { aboutContent } from '@/lib/aboutContent';
 
-export const metadata: Metadata = {
-  title: 'Om oss - Digilist',
-  description: 'Lær mer om Digilist og teamet bak Norges ledende bookingsystem for kommuner, kulturhus og idrettsanlegg.',
-};
 
 const valueIcons = {
   heart: Heart,
@@ -36,37 +35,53 @@ const teamIcons = [Users, Headphones, Palette];
 
 export default function OmOssPage() {
   return (
-    <div className="bg-bg min-h-screen">
+    <div className="bg-white min-h-screen">
       
       {/* HERO SECTION - Split Layout */}
-      <section className="relative overflow-hidden">
-        {/* Background with brand gradient */}
-        <div className="absolute inset-0 bg-gradient-hero" />
+      <section className="relative overflow-hidden bg-sky2/10">
         
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-        
-        <div className="relative max-w-[1140px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
+        <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-cyan/20 shadow-sm mb-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-cyan/20 shadow-sm mb-6"
+              >
                 <Sparkles size={16} className="text-cyan" />
                 <span className="text-sm font-medium text-navy">Om Digilist</span>
-              </div>
-              <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl text-navy">
-                {aboutContent.hero.title}
-              </Heading>
-              <Text variant="lead" className="mb-6 text-base sm:text-lg md:text-xl text-navy/70">
-                {aboutContent.hero.subtitle}
-              </Text>
-              <Text variant="body" className="text-navy/60 max-w-2xl mb-8">
-                {aboutContent.hero.description}
-              </Text>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl text-navy">
+                  {aboutContent.hero.title}
+                </Heading>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                <Text variant="lead" className="mb-6 text-base sm:text-lg md:text-xl text-navy/70">
+                  {aboutContent.hero.subtitle}
+                </Text>
+                <Text variant="body" className="text-navy/60 max-w-2xl mb-8">
+                  {aboutContent.hero.description}
+                </Text>
+              </motion.div>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
+              >
                 <Link href="/demo">
                   <Button variant="gradient" size="lg" className="w-full sm:w-auto group">
                     Book demo
@@ -78,35 +93,48 @@ export default function OmOssPage() {
                     Se funksjoner
                   </Button>
                 </Link>
-              </div>
+              </motion.div>
               
               {/* Stats as badges */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4, staggerChildren: 0.1 }}
+                className="flex flex-wrap gap-2 justify-center lg:justify-start"
+              >
                 {aboutContent.stats.map((stat, idx) => (
-                  <div 
-                    key={idx} 
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-border"
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-sm border border-border shadow-sm whitespace-nowrap shrink-0"
                   >
-                    <span className="text-sm font-bold text-primary">{stat.number}</span>
-                    <span className="text-sm font-medium text-navy">{stat.label}</span>
-                  </div>
+                    <span className="text-xs font-bold text-primary">{stat.number}</span>
+                    <span className="text-xs font-medium text-navy">{stat.label}</span>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
             
             {/* Right - Image */}
-            <div className="relative hidden lg:block">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+              className="relative hidden lg:block"
+            >
               <div className="relative">
                 {/* Decorative elements */}
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan/20 rounded-full blur-2xl" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
                 
                 {/* Main image */}
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
                   <img 
                     src="/images/utleieobjekter/gyllenborg-idrettshall.jpg" 
                     alt="Om Digilist"
-                    className="w-full h-auto object-cover aspect-[3/4]"
+                    className="w-full h-auto object-cover aspect-[4/5]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
                   
@@ -123,14 +151,16 @@ export default function OmOssPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* MISSION SECTION - Split Layout */}
-      <Section variant="default">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <ScrollAnimation variant="fadeUp" delay={100}>
+        <Section variant="rich-primary">
+        <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Mission Text */}
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6">
@@ -146,7 +176,7 @@ export default function OmOssPage() {
             
             {/* Key points */}
             <div className="space-y-4">
-              {['Enkel booking for alle', 'Norsk selskap, norsk support', 'Bygget for offentlig sektor'].map((point, idx) => (
+              {['Enkel booking for alle', 'Norsk selskap', 'Bygget for offentlig sektor'].map((point, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
                     <CheckCircle2 size={16} className="text-white" />
@@ -162,7 +192,7 @@ export default function OmOssPage() {
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-cyan/20 rounded-full blur-2xl" />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
             
-            <div className="relative bg-white rounded-2xl p-8 sm:p-10 shadow-xl border border-border">
+            <div className="relative bg-white rounded-2xl p-8 sm:p-10 border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
               <Quote className="text-primary/20 mb-4" size={48} aria-hidden="true" />
               <blockquote>
                 <Text variant="lead" className="text-navy font-semibold italic text-xl sm:text-2xl leading-relaxed mb-6">
@@ -181,11 +211,15 @@ export default function OmOssPage() {
             </div>
           </div>
         </div>
+        </div>
       </Section>
+      </ScrollAnimation>
 
       {/* VALUES SECTION - Horizontal Cards */}
-      <Section variant="tinted">
-        <div className="text-center mb-12">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="rich-cyan">
+        <div className="bg-cyan/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
             <Heart size={14} />
             Verdier
@@ -198,35 +232,39 @@ export default function OmOssPage() {
           </Text>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <StaggerAnimation staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {aboutContent.values.map((value, idx) => {
             const Icon = valueIcons[value.icon as keyof typeof valueIcons] || Heart;
             const colors = ['bg-primary', 'bg-cyan', 'bg-success', 'bg-primary'];
             return (
               <div 
                 key={idx} 
-                className="group flex gap-5 p-6 rounded-xl bg-white border border-border shadow-sm hover:shadow-lg hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                className="group flex gap-5 p-6 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full"
               >
-                <div className={`w-14 h-14 rounded-xl ${colors[idx % colors.length]} flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-all duration-300`}>
+                <div className={`w-14 h-14 rounded-xl ${colors[idx % colors.length]} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth`}>
                   <Icon size={26} className="text-white" aria-hidden="true" />
                 </div>
-                <div>
+                <div className="flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-navy mb-2 group-hover:text-primary transition-colors">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-navy/60 leading-relaxed">
+                  <p className="text-sm text-navy/60 leading-relaxed flex-1">
                     {value.description}
                   </p>
                 </div>
               </div>
             );
-          })}
+            })}
+        </StaggerAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* TEAM SECTION - Modern Cards */}
-      <Section variant="default">
-        <div className="text-center mb-12">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="rich-sky">
+        <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 text-success text-xs font-medium mb-4">
             <Users size={14} />
             Teamet
@@ -239,17 +277,17 @@ export default function OmOssPage() {
           </Text>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StaggerAnimation staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {aboutContent.team.members.map((member, idx) => {
             const Icon = teamIcons[idx] || Users;
             const colors = ['bg-primary', 'bg-cyan', 'bg-success'];
             return (
               <div 
                 key={idx} 
-                className="group bg-white rounded-2xl p-6 shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group bg-white rounded-2xl p-6 border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full"
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className={`w-20 h-20 rounded-2xl ${colors[idx % colors.length]} flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-all duration-300`}>
+                <div className="flex flex-col items-center text-center h-full">
+                  <div className={`w-20 h-20 rounded-2xl ${colors[idx % colors.length]} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth`}>
                     <Icon size={36} className="text-white" aria-hidden="true" />
                   </div>
                   <h3 className="text-xl font-bold text-navy mb-1 group-hover:text-primary transition-colors">
@@ -258,19 +296,23 @@ export default function OmOssPage() {
                   <p className="text-sm font-semibold text-primary mb-4">
                     {member.role}
                   </p>
-                  <p className="text-sm text-navy/60 leading-relaxed">
+                  <p className="text-sm text-navy/60 leading-relaxed flex-1">
                     {member.description}
                   </p>
                 </div>
               </div>
             );
-          })}
+            })}
+        </StaggerAnimation>
         </div>
       </Section>
+      </ScrollAnimation>
 
       {/* TIMELINE SECTION - Alternating Layout */}
-      <Section variant="tinted">
-        <div className="text-center mb-12">
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <Section variant="gradient">
+        <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
             <Sparkles size={14} />
             Historie
@@ -299,14 +341,14 @@ export default function OmOssPage() {
                   <div key={idx} className="relative">
                     {/* Center dot with year */}
                     <div className="absolute left-1/2 -translate-x-1/2 z-20">
-                      <div className={`w-16 h-16 rounded-2xl ${bgColor} flex items-center justify-center shadow-sm`}>
+                      <div className={`w-16 h-16 rounded-2xl ${bgColor} flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth`}>
                         <span className="text-lg font-bold text-white">{milestone.year}</span>
                       </div>
                     </div>
                     
                     {/* Content card */}
                     <div className={`flex ${isLeft ? 'justify-start pr-[calc(50%+48px)]' : 'justify-end pl-[calc(50%+48px)]'}`}>
-                      <div className="group relative w-full bg-white rounded-xl p-6 shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                      <div className="group relative w-full bg-white rounded-xl p-6 border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
                         {/* Decorative accent line */}
                         <div className={`absolute top-0 ${isLeft ? 'right-0' : 'left-0'} w-1 h-full ${bgColor} rounded-full`} />
                         
@@ -343,11 +385,11 @@ export default function OmOssPage() {
                   return (
                     <div key={idx} className="relative flex gap-6 group">
                       {/* Year badge */}
-                      <div className={`relative z-10 w-12 h-12 rounded-xl ${bgColor} flex items-center justify-center shadow-sm shrink-0 group-hover:scale-110 transition-transform`}>
+                      <div className={`relative z-10 w-12 h-12 rounded-xl ${bgColor} flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth`}>
                         <span className="text-xs font-bold text-white">{milestone.year}</span>
                       </div>
                       
-                      <div className="flex-1 bg-white rounded-xl p-5 shadow-sm border border-border hover:shadow-lg transition-all duration-300">
+                      <div className="flex-1 bg-white rounded-xl p-5 border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
                         <h3 className="text-lg font-bold text-navy mb-2 group-hover:text-primary transition-colors">
                           {milestone.title}
                         </h3>
@@ -362,7 +404,9 @@ export default function OmOssPage() {
             </div>
           </div>
         </div>
+        </div>
       </Section>
+      </ScrollAnimation>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export interface CtaSectionProps {
   description: string;
   primaryCta: string;
   secondaryCta: string;
-  variant?: 'default' | 'tinted';
+  variant?: 'default' | 'tinted' | 'gradient' | 'rich-primary' | 'rich-cyan' | 'rich-sky';
   className?: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
@@ -28,7 +28,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
   onSecondaryClick,
 }) => {
   return (
-    <Section variant={variant} className={`bg-gray-50 ${className}`}>
+    <Section variant={variant} className={className}>
       <div className="text-center px-4 sm:px-0">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface ring-1 ring-cyan/20 shadow-sm mb-6">
@@ -71,10 +71,6 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-cyan" />
             <span className="text-sm text-text-muted">Ingen binding</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-sm text-text-muted">Norsk support</span>
           </div>
         </div>
       </div>

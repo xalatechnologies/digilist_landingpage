@@ -4,6 +4,7 @@ import React from 'react';
 import { Building2, Theater, Dumbbell, Briefcase, ArrowRight } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { SectionHeader } from '@/components/sections/SectionHeader';
+import { StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { homeContent } from '@/lib/homeContent';
 
 const iconMap = {
@@ -22,15 +23,15 @@ const cardStyles = {
 
 export const AudienceSection: React.FC = () => {
   return (
-    <Section variant="default" id="hvem-passer-det-for">
-      <div>
+    <Section variant="rich-primary" id="hvem-passer-det-for">
+      <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
         <SectionHeader
           title="Hvem passer det for"
           subtitle="En løsning som fungerer for alle typer organisasjoner"
           badge="For alle"
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 max-w-4xl mx-auto">
+        <StaggerAnimation staggerDelay={0.15} className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 max-w-4xl mx-auto">
           {homeContent.audienceCards.map((card) => {
             const Icon = iconMap[card.title as keyof typeof iconMap] || Building2;
             
@@ -84,7 +85,7 @@ export const AudienceSection: React.FC = () => {
               </div>
             );
           })}
-        </div>
+        </StaggerAnimation>
       </div>
     </Section>
   );

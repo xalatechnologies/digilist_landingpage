@@ -63,7 +63,7 @@ export const Heading: React.FC<HeadingProps> = ({
   // Determine semantic level (defaults based on size if level not provided)
   const semanticLevel = level || (size ? getSemanaticLevelFromSize(size) : 2);
   
-  const Tag = `h${semanticLevel}` as keyof JSX.IntrinsicElements;
+  const Tag = `h${semanticLevel}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   
   return (
     <Tag 

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Heading } from '@/components/ui/Typography';
+import { StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { homeContent } from '@/lib/homeContent';
 
 export const TrustBar: React.FC = () => {
@@ -11,7 +12,7 @@ export const TrustBar: React.FC = () => {
   }
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 py-16">
       <div className="container-main">
         <div className="text-center mb-12">
           <Heading level={2} className="mb-2">
@@ -22,7 +23,7 @@ export const TrustBar: React.FC = () => {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+        <StaggerAnimation staggerDelay={0.1} className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
           {homeContent.partners.map((partner) => {
             const isExternal = partner.url && partner.url.startsWith('http');
             
@@ -50,7 +51,7 @@ export const TrustBar: React.FC = () => {
               </Link>
             );
           })}
-        </div>
+        </StaggerAnimation>
       </div>
     </div>
   );
