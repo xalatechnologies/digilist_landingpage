@@ -130,13 +130,14 @@ export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   const baseVariant = animationVariants[variant] || animationVariants.fadeUp;
   
   // Apply custom duration if provided
+  const baseVisible = baseVariant.visible as { transition?: any; [key: string]: any };
   const customVariant = duration 
     ? {
         ...baseVariant,
         visible: {
-          ...baseVariant.visible,
+          ...baseVisible,
           transition: {
-            ...baseVariant.visible.transition,
+            ...(baseVisible.transition || {}),
             duration: duration / 1000, // Convert ms to seconds
             delay: delay / 1000,
           }
@@ -145,9 +146,9 @@ export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
     : {
         ...baseVariant,
         visible: {
-          ...baseVariant.visible,
+          ...baseVisible,
           transition: {
-            ...baseVariant.visible.transition,
+            ...(baseVisible.transition || {}),
             delay: delay / 1000,
           }
         }

@@ -14,7 +14,7 @@ export interface CategorySectionProps {
   title: string;
   subtitle: string;
   categories: CategoryItem[];
-  variant?: 'default' | 'tinted' | 'gradient' | 'dark';
+  variant?: 'default' | 'tinted' | 'gradient' | 'dark' | 'rich-sky';
   columns?: 1 | 2 | 3;
   className?: string;
   image?: string;
