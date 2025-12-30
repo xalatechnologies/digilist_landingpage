@@ -15,27 +15,28 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   role,
 }) => {
   return (
-    <Card hoverable className="relative h-full flex flex-col group bg-green-50/40 hover:bg-green-50 transition-colors duration-300">
-      <Quote 
-        className="text-background-light fill-background-light absolute top-6 right-6 group-hover:text-action-blue/20 group-hover:fill-action-blue/20 transition-colors duration-300" 
-        size={36} 
-        aria-hidden="true" 
-      />
-      <Text 
-        variant="body" 
-        className="font-medium leading-relaxed mb-6 relative z-10 flex-grow group-hover:text-navy-base transition-colors duration-300"
-      >
-        {quote}
-      </Text>
-      <div className="pt-6 border-t-2 border-gray-200 group-hover:border-action-blue/50 transition-colors duration-300">
-        <p className="font-bold text-navy-base text-base mb-1 group-hover:text-action-blue transition-colors duration-300">
-          {author}
-        </p>
-        <p className="text-sm text-text-secondary group-hover:text-text-secondary transition-colors duration-300">
-          {role}
-        </p>
-      </div>
+    <Card hoverable variant="gradient" className="h-full">
+      <Card.Block className="relative flex flex-col h-full">
+        <Quote 
+          className="text-cyan/20 fill-cyan/20 absolute top-0 right-0 group-hover:text-cyan/30 group-hover:fill-cyan/30 transition-colors duration-180" 
+          size={36} 
+          aria-hidden="true" 
+        />
+        <Text 
+          variant="body" 
+          className="font-medium leading-relaxed mb-6 relative z-10 flex-grow text-navy/80 group-hover:text-navy transition-colors duration-180"
+        >
+          &ldquo;{quote}&rdquo;
+        </Text>
+        <div className="pt-6 border-t-2 border-sky2/50 group-hover:border-cyan/50 transition-colors duration-180">
+          <p className="font-bold text-navy text-base mb-1 group-hover:text-primary transition-colors duration-180">
+            {author}
+          </p>
+          <p className="text-sm text-navy/60">
+            {role}
+          </p>
+        </div>
+      </Card.Block>
     </Card>
   );
 };
-

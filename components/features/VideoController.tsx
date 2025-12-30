@@ -84,22 +84,24 @@ export const VideoController: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {currentVideos.map((video, idx) => (
-            <Card key={idx} hoverable className="group cursor-pointer">
-              {/* Video Placeholder */}
-              <div className={`relative aspect-video ${video.color} rounded-digdir border-2 border-gray-200 overflow-hidden mb-4 group-hover:border-action-blue transition-all`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform text-action-blue" aria-hidden="true">
-                    <Play size={40} fill="currentColor" />
+            <Card key={idx} hoverable variant="gradient" className="cursor-pointer">
+              <Card.Block>
+                {/* Video Placeholder */}
+                <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-sky2/30 rounded-lg border-2 border-sky2/50 overflow-hidden mb-4 group-hover:border-cyan transition-all">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform text-primary" aria-hidden="true">
+                      <Play size={40} fill="currentColor" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <Heading level={3} className="text-lg font-bold text-navy-base mb-2 group-hover:text-action-blue transition-colors tracking-tight">
-                {video.title}
-              </Heading>
-              <Text variant="body" className="text-text-secondary tracking-tight">
-                {video.desc}
-              </Text>
+                
+                <Heading level={3} className="text-lg font-bold text-navy mb-2 group-hover:text-primary transition-colors tracking-tight">
+                  {video.title}
+                </Heading>
+                <Text variant="body" className="text-navy/70 tracking-tight">
+                  {video.desc}
+                </Text>
+              </Card.Block>
             </Card>
           ))}
         </motion.div>

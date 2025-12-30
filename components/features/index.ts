@@ -14,4 +14,8 @@ export { VideoController } from './VideoController';
 export type { VideoItem } from './VideoController';
 export { TestimonialCard } from './TestimonialCard';
 export type { TestimonialCardProps } from './TestimonialCard';
+export { AudienceSection } from './AudienceSection';
+export { FeatureGroupsSection } from './FeatureGroupsSection';
+export { HowItWorksSection } from './HowItWorksSection';
+export { OperationsTabsSection } from './OperationsTabsSection';
 

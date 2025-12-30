@@ -30,7 +30,7 @@ export const DashboardPreview: React.FC = () => {
           {/* Row 3 */}
           <div className="flex gap-4 items-center">
             <div className="w-12 text-sm text-text-muted font-medium">17:00</div>
-            <div className="flex-1 bg-background-light border-l-4 border-[#27C93F] p-3 rounded-digdir">
+            <div className="flex-1 bg-background-light border-l-4 border-status-success p-3 rounded-digdir">
               <div className="font-bold text-navy-base text-sm tracking-tight">Håndballtrening (IL Ørn)</div>
             </div>
           </div>

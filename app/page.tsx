@@ -1,116 +1,122 @@
 import React from 'react';
-import { Section } from '@/components/layout/Section';
-import { Heading } from '@/components/ui/Typography';
-import { Text } from '@/components/ui/Typography';
 import { HeroSection } from '@/components/features/HeroSection';
 import { TrustBar } from '@/components/features/TrustBar';
-import { FeatureCard } from '@/components/features/FeatureCard';
-import { FeatureOverviewSection } from '@/components/features/FeatureOverviewSection';
-import { MobileAppShowcase } from '@/components/features/MobileAppShowcase';
-import { CaseStudySection } from '@/components/features/CaseStudySection';
-import { RentalObjectsSection } from '@/components/features/RentalObjectsSection';
-import { TestimonialCard } from '@/components/features/TestimonialCard';
+import { AudienceSection } from '@/components/features/AudienceSection';
+import { FeatureGroupsSection } from '@/components/features/FeatureGroupsSection';
+import { HowItWorksSection } from '@/components/features/HowItWorksSection';
+import { OperationsTabsSection } from '@/components/features/OperationsTabsSection';
+import { ImageShowcase } from '@/components/features/ImageShowcase';
+import { IntegrationShowcase } from '@/components/features/IntegrationShowcase';
+import { 
+  CategorySection, 
+  CtaSection 
+} from '@/components/sections';
+import { ScrollAnimation } from '@/components/ui/ScrollAnimation';
+import { homeContent } from '@/lib/homeContent';
 
 export default function HomePage() {
-  const features = [
-    {
-      icon: 'Calendar' as const,
-      title: 'Felles Kalender',
-      description: 'Full oversikt over alle lokaler. Synkroniseres automatisk med Outlook og kommunens nettsider.',
-    },
-    {
-      icon: 'CreditCard' as const,
-      title: 'Automatisk Faktura',
-      description: 'Direkte integrasjon med Visma og økonomisystemer. Ingen manuell oppfølging nødvendig.',
-    },
-    {
-      icon: 'Lock' as const,
-      title: 'Adgangskontroll',
-      description: 'Send digitale nøkler via SMS. Tilgangen slettes automatisk når bookingen er over.',
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote: "Endelig et system som snakker med smartlåsene våre. Vi slipper å dele ut fysiske nøkler, og alt går automatisk.",
-      author: "Ingrid Solberg",
-      role: "Eiendomssjef, Drammen",
-    },
-    {
-      quote: "Frivillige lag og foreninger elsker løsningen. De ser ledig tid med en gang og får svar på søknaden umiddelbart.",
-      author: "Petter Nilsen",
-      role: "Kulturkonsulent, Lillestrøm",
-    },
-    {
-      quote: "Integrasjonen mot Visma Enterprise fungerte smertefritt. Fakturering tar nå minutter i stedet for dager.",
-      author: "Marit Eide",
-      role: "Økonomisjef, Bærum",
-    },
-  ];
-
   return (
     <div className="bg-white min-h-screen">
       
-      {/* HERO SECTION */}
+      {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* TRUST TICKER */}
-      <TrustBar />
+      {/* 2. TRUST BAR */}
+      <ScrollAnimation variant="fadeUp" delay={100}>
+        <TrustBar />
+      </ScrollAnimation>
 
-      {/* FEATURE OVERVIEW SECTION */}
-      <FeatureOverviewSection />
+      {/* 3. HVEM PASSER DET FOR */}
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <AudienceSection />
+      </ScrollAnimation>
 
-      {/* FEATURE CARDS */}
-      <Section variant="default" id="features">
-        <div className="text-center mb-16">
-          <Heading level={2}>Alt du trenger på ett sted</Heading>
-          <Text variant="lead" className="max-w-2xl mx-auto">
-            Vi har fjernet kompleksiteten slik at du kan fokusere på innbyggerne.
-          </Text>
-        </div>
+      {/* 4. FUNKSJONER - 4 grupper */}
+      <ScrollAnimation variant="fadeUp" delay={200}>
+        <FeatureGroupsSection />
+      </ScrollAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, idx) => (
-            <FeatureCard
-              key={idx}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
-        </div>
-      </Section>
+      {/* 5. KRAVDEKNING PÅ 60 SEKUNDER */}
+      <ScrollAnimation variant="scale" delay={100}>
+        <CategorySection
+          id="kravdekning"
+          title={homeContent.publicSectorRequirements.title}
+          subtitle={homeContent.publicSectorRequirements.subtitle}
+          categories={homeContent.publicSectorRequirements.categories}
+          variant="rich-sky"
+          columns={3}
+          image="/images/utleieobjekter/flytende-badstua-ulefoss.jpg"
+          imageAlt="Offentlig sektor løsning"
+        />
+      </ScrollAnimation>
 
-      {/* CASE STUDY / STATS */}
-      <CaseStudySection />
+      {/* 6. SLIK FUNGERER DET - 4 steg */}
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <HowItWorksSection />
+      </ScrollAnimation>
 
-      {/* MOBILE APP SHOWCASE */}
-      <MobileAppShowcase />
+      {/* 6.5. IMAGE SHOWCASE */}
+      <ScrollAnimation variant="fadeLeft" delay={100}>
+        <ImageShowcase
+          variant="left"
+          sectionVariant="rich-primary"
+          badge="Se det i praksis"
+          title="Fra kultursal til idrettshall"
+          description="Digilist gir deg full oversikt over alle utleieobjekter. Se tilgjengelighet i sanntid, administrer bookinger enkelt, og la brukerne selv finne og booke ledige lokaler."
+          features={[
+            'Visuell kalender med drag-and-drop',
+            'Automatiske bekreftelser og påminnelser',
+            'Integrert betalingsløsning',
+            'Rapporter og statistikk',
+          ]}
+          image="/images/utleieobjekter/kipo-kultursal.jpg"
+          imageAlt="Kultursal booking eksempel"
+          ctaText="Se demo"
+          ctaHref="/demo"
+        />
+      </ScrollAnimation>
 
-      {/* RENTAL OBJECTS SECTION */}
-      <RentalObjectsSection />
+      {/* 7. INTEGRASJONER */}
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <IntegrationShowcase />
+      </ScrollAnimation>
 
-      {/* TESTIMONIALS SECTION */}
-      <Section variant="default" className="bg-gradient-to-b from-gray-50 via-blue-50/30 to-gray-50">
-        <div className="text-center mb-16">
-          <Heading level={2}>Tilbakemeldinger fra sektoren</Heading>
-          <Text variant="lead" className="max-w-2xl mx-auto">
-            Vi er stolte av å levere løsninger som fungerer i hverdagen.
-          </Text>
-        </div>
+      {/* 7.5. IMAGE SHOWCASE - Right variant */}
+      <ScrollAnimation variant="fadeRight" delay={100}>
+        <ImageShowcase
+          variant="right"
+          sectionVariant="rich-cyan"
+          badge="Fleksibel løsning"
+          title="Tilpasset dine behov"
+          description="Enten du driver et kulturhus, idrettsanlegg eller konferansesenter – Digilist skalerer med dine behov og tilpasses din organisasjon."
+          features={[
+            'Egen branding og profil',
+            'Tilpassbare bookingskjemaer',
+            'Flerspråklig støtte',
+            'Rollebasert tilgangsstyring',
+          ]}
+          image="/images/utleieobjekter/gyllenborg-idrettshall.jpg"
+          imageAlt="Idrettshall booking eksempel"
+          ctaText="Les mer om funksjonalitet"
+          ctaHref="/funksjonalitet"
+        />
+      </ScrollAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, idx) => (
-            <TestimonialCard
-              key={idx}
-              quote={testimonial.quote}
-              author={testimonial.author}
-              role={testimonial.role}
-            />
-          ))}
-        </div>
-      </Section>
+      {/* 8. TRYGG DRIFT - Tabs */}
+      <ScrollAnimation variant="fadeUp" delay={150}>
+        <OperationsTabsSection />
+      </ScrollAnimation>
+
+      {/* 9. SLUTT-CTA */}
+      <ScrollAnimation variant="scale" delay={100}>
+        <CtaSection
+          title={homeContent.cta.final.title}
+          description={homeContent.cta.final.description}
+          primaryCta={homeContent.cta.final.primary}
+          secondaryCta={homeContent.cta.final.secondary}
+          variant="gradient"
+        />
+      </ScrollAnimation>
     </div>
   );
 }
-

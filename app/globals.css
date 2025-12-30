@@ -1,34 +1,303 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Import design tokens first */
+@import './styles/tokens.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --s-12: 6rem; /* 96px standard section padding */
-}
-
+/* ============================================
+ * BASE LAYER - Default element styles
+ * ============================================ */
 @layer base {
   html {
-    font-size: 18px;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    /* Account for sticky header when scrolling to anchors */
+    scroll-padding-top: 80px;
+  }
+  
+  @media (min-width: 640px) {
+    html {
+      font-size: 18px;
+      scroll-padding-top: 100px;
+    }
   }
   
   body {
-    font-family: 'Inter', sans-serif;
-    color: #1E2B3C;
-    background-color: #FFFFFF;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: rgb(var(--text));
+    background-color: rgb(var(--bg));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  /* Ensure sections with IDs don't get hidden under sticky navbar */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
   
-  /* Focus styles for accessibility */
+  /* Global focus ring for accessibility - Cyan */
   *:focus-visible {
-    outline: 2px solid #0051BE;
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(var(--cyan) / 0.35);
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgb(var(--cyan));
+    color: white;
+  }
+
+  /* Links default styling */
+  a {
+    color: rgb(var(--link));
+    text-decoration: none;
+    transition: color var(--dur-2) var(--ease);
+  }
+
+  a:hover {
+    color: rgb(var(--cyan));
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(var(--navy));
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 
+/* ============================================
+ * COMPONENT LAYER - Reusable UI patterns
+ * ============================================ */
+@layer components {
+  /* ----- BUTTON COMPONENTS ----- */
+  
+  /* Button Base */
+  .btn {
+    @apply inline-flex items-center justify-center font-semibold 
+           rounded-md transition-all duration-180 ease-smooth
+           min-h-[44px] min-w-[44px] px-6 py-3
+           transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  /* Button Primary - Solid brand blue */
+  .btn-primary {
+    @apply btn bg-primary text-white shadow-soft;
+  }
+  .btn-primary:hover {
+    @apply bg-primary/90 shadow-lift;
+  }
+  .btn-primary:active {
+    @apply bg-primary/85;
+  }
+  .btn-primary:focus-visible {
+    @apply ring-4 ring-cyan/35;
+  }
+  
+  /* Button Gradient - Solid primary color */
+  .btn-gradient {
+    @apply btn text-white font-bold shadow-soft;
+    background: rgb(var(--primary));
+  }
+  .btn-gradient:hover {
+    @apply shadow-lift;
+    filter: brightness(1.05);
+  }
+  .btn-gradient:focus-visible {
+    @apply ring-4 ring-cyan/35;
+  }
+  
+  /* Button Secondary - White with border */
+  .btn-secondary {
+    @apply btn bg-surface text-navy ring-1 ring-border;
+  }
+  .btn-secondary:hover {
+    @apply ring-cyan/45 bg-sky2/10 shadow-sm;
+  }
+  .btn-secondary:focus-visible {
+    @apply ring-4 ring-cyan/35;
+  }
+  
+  /* Button Tertiary - Link style */
+  .btn-tertiary {
+    @apply btn bg-transparent text-primary px-4;
+  }
+  .btn-tertiary:hover {
+    @apply underline decoration-cyan underline-offset-4;
+  }
+  
+  /* Button Ghost - Minimal */
+  .btn-ghost {
+    @apply btn bg-transparent text-navy;
+  }
+  .btn-ghost:hover {
+    @apply text-primary bg-sky2/10;
+  }
+  
+  /* Button Disabled */
+  .btn-disabled, .btn:disabled {
+    @apply bg-sky2/15 text-navy/45 cursor-not-allowed 
+           transform-none shadow-none;
+  }
+  
+  /* Button Sizes */
+  .btn-sm {
+    @apply px-4 py-2 text-sm min-h-[36px];
+  }
+  .btn-lg {
+    @apply px-8 py-4 text-base min-h-[52px];
+  }
+
+  /* ----- CARD COMPONENTS ----- */
+  
+  .card {
+    @apply rounded-xl p-6 sm:p-8
+           bg-white
+           border border-border shadow-sm
+           transition-all duration-300 ease-smooth;
+  }
+  .card-hover {
+    @apply card cursor-pointer border-2 border-sky2/50 shadow-lg;
+  }
+  .card-hover:hover {
+    @apply shadow-xl border-cyan -translate-y-2;
+  }
+
+  /* ----- INPUT COMPONENTS ----- */
+  
+  .input {
+    @apply w-full px-4 py-3 rounded-md 
+           bg-white text-navy ring-1 ring-border
+           placeholder:text-navy/45
+           transition-all duration-180 ease-smooth;
+  }
+  .input:focus {
+    @apply ring-4 ring-cyan/35 outline-none;
+  }
+  .input-error {
+    @apply input ring-error/50;
+  }
+  .input-error:focus {
+    @apply ring-4 ring-error/35;
+  }
+  .input:disabled {
+    @apply bg-surface-2 text-navy/50 cursor-not-allowed;
+  }
+
+  /* ----- BADGE COMPONENTS ----- */
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full 
+           text-xs font-semibold tracking-wide uppercase;
+  }
+  .badge-info {
+    @apply badge bg-primary/10 text-navy ring-1 ring-primary/25;
+  }
+  .badge-success {
+    @apply badge bg-success/10 text-navy ring-1 ring-success/25;
+  }
+  .badge-warning {
+    @apply badge bg-warning/10 text-navy ring-1 ring-warning/25;
+  }
+  .badge-cyan {
+    @apply badge bg-cyan/10 text-navy ring-1 ring-cyan/25;
+  }
+
+  /* ----- LINK STYLES ----- */
+  
+  .link {
+    @apply text-primary font-medium transition-colors duration-120 ease-smooth;
+  }
+  .link:hover {
+    @apply text-cyan underline decoration-cyan underline-offset-4;
+  }
+  .link:focus-visible {
+    @apply ring-2 ring-cyan/35 rounded-sm;
+  }
+
+  /* ----- SECTION LAYOUTS ----- */
+  
+  .section {
+    @apply py-section;
+  }
+  .section-sm {
+    @apply py-section-sm;
+  }
+  .container-main {
+    @apply max-w-container mx-auto px-6;
+  }
+  
+  /* Section backgrounds - Rich, beautiful color combinations */
+  .section-default {
+    background: linear-gradient(135deg, 
+      rgb(var(--surface-2)) 0%, 
+      rgb(var(--bg)) 50%, 
+      rgb(var(--sky-2) / 0.12) 100%);
+  }
+  .section-tinted {
+    background: linear-gradient(135deg, 
+      rgb(var(--primary) / 0.04) 0%, 
+      rgb(var(--cyan) / 0.06) 50%, 
+      rgb(var(--sky-2) / 0.10) 100%);
+  }
+  .section-gradient {
+    background: linear-gradient(135deg, 
+      rgb(var(--cyan) / 0.05) 0%, 
+      rgb(var(--primary) / 0.04) 50%, 
+      rgb(var(--surface-2)) 100%);
+  }
+  .section-alt {
+    background: linear-gradient(135deg, 
+      rgb(var(--sky-2) / 0.15) 0%, 
+      rgb(var(--cyan) / 0.08) 50%, 
+      rgb(var(--primary) / 0.03) 100%);
+  }
+  .section-rich-primary {
+    background: linear-gradient(135deg, 
+      rgb(var(--primary) / 0.06) 0%, 
+      rgb(var(--surface-2)) 50%, 
+      rgb(var(--sky-2) / 0.12) 100%);
+  }
+  .section-rich-cyan {
+    background: linear-gradient(135deg, 
+      rgb(var(--cyan) / 0.07) 0%, 
+      rgb(var(--surface-2)) 50%, 
+      rgb(var(--primary) / 0.04) 100%);
+  }
+  .section-rich-sky {
+    background: linear-gradient(135deg, 
+      rgb(var(--sky-2) / 0.18) 0%, 
+      rgb(var(--cyan) / 0.06) 50%, 
+      rgb(var(--surface-2)) 100%);
+  }
+  .section-dark {
+    @apply bg-navy text-white;
+  }
+
+  /* ----- ICON CONTAINERS ----- */
+  
+  .icon-box {
+    @apply w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center
+           transition-all duration-180 ease-smooth;
+  }
+  .icon-box-lg {
+    @apply w-14 h-14 rounded-xl flex items-center justify-center;
+  }
+  .icon-box:hover, .group:hover .icon-box {
+    @apply scale-110 rotate-3;
+  }
+  .icon-box svg {
+    @apply text-primary;
+  }
+}
+
+/* ============================================
+ * UTILITIES LAYER - Helper classes
+ * ============================================ */
 @layer utilities {
   .tracking-tight {
     letter-spacing: -0.01em;
@@ -38,16 +307,40 @@
     letter-spacing: -0.02em;
   }
   
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, rgb(var(--primary)) 0%, rgb(var(--cyan)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, rgb(var(--surface-2)) 0%, rgb(var(--bg)) 50%, rgb(var(--sky-2) / 0.15) 100%);
+  }
+
+  /* Animations */
   @keyframes gentle-sway {
-    0% { 
-      transform: translateX(0); 
-    }
-    50% { 
-      transform: translateX(-8px); 
-    }
-    100% { 
-      transform: translateX(0); 
-    }
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: var(--shadow-glow); }
+    50% { box-shadow: var(--shadow-glow-strong); }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
   
   .shake-on-hover {
@@ -57,5 +350,23 @@
   .group:hover .shake-on-hover {
     animation: gentle-sway 1.2s ease-in-out;
   }
-}
 
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Gradient background animation */
+  .bg-gradient-animated {
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  /* Focus ring utility */
+  .focus-ring {
+    @apply focus-visible:ring-4 focus-visible:ring-cyan/35 focus-visible:outline-none;
+  }
+}

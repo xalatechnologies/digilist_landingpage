@@ -9,8 +9,8 @@ import { Section } from '@/components/layout/Section';
 
 export const MobileAppShowcase: React.FC = () => {
   return (
-    <Section variant="zebra" id="app-showcase">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <Section variant="tinted" id="app-showcase">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         {/* Left Column: Text Content */}
         <div className="text-center lg:text-left">
           <Heading level={2} className="mb-6">

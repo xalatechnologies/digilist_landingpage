@@ -13,6 +13,10 @@ const nextConfig = {
         hostname: 'localhost',
         pathname: '/api/utleieobjekter/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 }

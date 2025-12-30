@@ -223,44 +223,47 @@ export const LearningPlatform: React.FC = () => {
               <Card
                 key={video.id}
                 hoverable
+                variant="gradient"
                 onClick={() => setSelectedVideo(video)}
-                className="group cursor-pointer overflow-hidden h-full flex flex-col hover:!border-green-700 bg-purple-50/40 hover:bg-purple-50 transition-colors duration-300"
+                className="cursor-pointer overflow-hidden h-full flex flex-col"
               >
-                {/* Video Thumbnail */}
-                <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-digdir mb-5 overflow-hidden border-2 border-gray-200 group-hover:border-green-500/50 transition-all">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-green-600 group-hover:scale-105 transition-transform">
-                      <Play size={40} fill="currentColor" />
+                <Card.Block className="flex flex-col h-full">
+                  {/* Video Thumbnail */}
+                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-lg mb-5 overflow-hidden border-2 border-sky2/50 group-hover:border-cyan transition-all">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-primary group-hover:scale-105 transition-transform">
+                        <Play size={40} fill="currentColor" />
+                      </div>
+                    </div>
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge 
+                        variant="cyan" 
+                        className="text-xs bg-white/95 backdrop-blur-sm shadow-sm"
+                      >
+                        <CategoryIcon size={14} className="mr-1.5" aria-hidden="true" />
+                        <span className="font-medium">{video.category}</span>
+                      </Badge>
+                    </div>
+                    {/* Duration Badge */}
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-navy/80 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-medium shadow-lg">
+                        <Clock size={14} aria-hidden="true" />
+                        {video.duration}
+                      </div>
                     </div>
                   </div>
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <Badge 
-                      variant="default" 
-                      className="text-xs bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm group-hover:border-green-700 group-hover:text-green-700"
-                    >
-                      <CategoryIcon size={14} className="mr-1.5 group-hover:text-green-700 transition-colors" aria-hidden="true" />
-                      <span className="font-medium">{video.category}</span>
-                    </Badge>
-                  </div>
-                  {/* Duration Badge */}
-                  <div className="absolute bottom-4 right-4">
-                    <div className="bg-black/80 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-digdir flex items-center gap-1.5 font-medium shadow-lg">
-                      <Clock size={14} aria-hidden="true" />
-                      {video.duration}
-                    </div>
-                  </div>
-                </div>
 
-                {/* Video Info */}
-                <div className="flex-1 flex flex-col">
-                  <Heading level={3} className="text-xl font-bold text-navy-base mb-3 group-hover:text-green-700 transition-colors duration-300 tracking-tight">
-                    {video.title}
-                  </Heading>
-                  <Text variant="body" className="text-base text-text-secondary leading-relaxed flex-1">
-                    {video.description}
-                  </Text>
-                </div>
+                  {/* Video Info */}
+                  <div className="flex-1 flex flex-col">
+                    <Heading level={3} className="text-xl font-bold text-navy mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                      {video.title}
+                    </Heading>
+                    <Text variant="body" className="text-base text-navy/70 leading-relaxed flex-1">
+                      {video.description}
+                    </Text>
+                  </div>
+                </Card.Block>
               </Card>
             );
           })
@@ -289,60 +292,62 @@ export const LearningPlatform: React.FC = () => {
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-white">
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
-                  aria-label="Lukk video"
-                >
-                  <X size={20} className="text-navy-base" aria-hidden="true" />
-                </button>
+              <Card className="max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <Card.Block className="relative">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedVideo(null)}
+                    className="absolute top-0 right-0 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-surface-2 transition-colors"
+                    aria-label="Lukk video"
+                  >
+                    <X size={20} className="text-navy" aria-hidden="true" />
+                  </button>
 
-                {/* Video Player */}
-                <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-digdir mb-6 overflow-hidden border-2 border-gray-300">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-green-600">
-                      <Play size={48} fill="currentColor" />
+                  {/* Video Player */}
+                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-lg mb-6 overflow-hidden border-2 border-border">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-primary">
+                        <Play size={48} fill="currentColor" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-digdir p-3">
-                      <div className="text-sm font-semibold text-navy-base">
-                        {selectedVideo.title}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                        <div className="text-sm font-semibold text-navy">
+                          {selectedVideo.title}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Video Details */}
-                <div className="px-2 pb-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`${selectedVideo.categoryColor} p-2 rounded-digdir`}>
-                      {(() => {
-                        const Icon = selectedVideo.categoryIcon;
-                        return <Icon className="text-white" size={20} aria-hidden="true" />;
-                      })()}
-                    </div>
-                    <div>
-                      <Badge variant="default" className="text-xs mb-1">
-                        {selectedVideo.category}
-                      </Badge>
-                      <div className="flex items-center gap-2 text-sm text-text-muted">
-                        <Clock size={14} aria-hidden="true" />
-                        <span>{selectedVideo.duration}</span>
+                  {/* Video Details */}
+                  <div className="px-2 pb-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-gradient-to-br from-primary to-cyan p-2 rounded-lg">
+                        {(() => {
+                          const Icon = selectedVideo.categoryIcon;
+                          return <Icon className="text-white" size={20} aria-hidden="true" />;
+                        })()}
+                      </div>
+                      <div>
+                        <Badge variant="cyan" className="text-xs mb-1">
+                          {selectedVideo.category}
+                        </Badge>
+                        <div className="flex items-center gap-2 text-sm text-muted">
+                          <Clock size={14} aria-hidden="true" />
+                          <span>{selectedVideo.duration}</span>
+                        </div>
                       </div>
                     </div>
+                    
+                    <Heading level={2} className="text-2xl font-bold text-navy mb-3">
+                      {selectedVideo.title}
+                    </Heading>
+                    
+                    <Text variant="lead" className="text-navy/70 leading-relaxed">
+                      {selectedVideo.description}
+                    </Text>
                   </div>
-                  
-                  <Heading level={2} className="text-2xl font-bold text-navy-base mb-3">
-                    {selectedVideo.title}
-                  </Heading>
-                  
-                  <Text variant="lead" className="text-text-secondary leading-relaxed">
-                    {selectedVideo.description}
-                  </Text>
-                </div>
+                </Card.Block>
               </Card>
             </motion.div>
           </>

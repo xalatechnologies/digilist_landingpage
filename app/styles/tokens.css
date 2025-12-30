@@ -1,0 +1,172 @@
+/**
+ * Digilist Design Tokens
+ * 
+ * Single source of truth for all colors, spacing, and visual properties.
+ * Uses RGB format for Tailwind alpha compatibility.
+ * 
+ * Palette (from Digilist logo):
+ * - Deep Navy: #1A365D (26, 54, 93)
+ * - Primary Blue: #2563EB (37, 99, 235)
+ * - Cyan: #06B6D4 (6, 182, 212)
+ * - Sky Blue 1: #38BDF8 (56, 189, 248)
+ * - Sky Blue 2: #7DD3FC (125, 211, 252)
+ * - Green: #22C55E (34, 197, 94)
+ */
+
+:root {
+  /* ============================================
+   * BASE PALETTE (RGB for Tailwind alpha)
+   * ============================================ */
+  --navy: 26 54 93;           /* #1A365D - Deep Navy */
+  --primary: 37 99 235;       /* #2563EB - Primary Blue */
+  --cyan: 6 182 212;          /* #06B6D4 - Cyan accent */
+  --sky-1: 56 189 248;        /* #38BDF8 - Sky Blue light */
+  --sky-2: 125 211 252;       /* #7DD3FC - Sky Blue lighter */
+  --success: 34 197 94;       /* #22C55E - Green */
+
+  /* ============================================
+   * SEMANTIC SURFACES
+   * ============================================ */
+  --bg: 255 255 255;                    /* White background */
+  --surface: 255 255 255;               /* Card/component background */
+  --surface-2: 240 253 250;             /* Subtle tinted background #F0FDFA */
+  --surface-3: 224 247 250;             /* Stronger tinted background #E0F7FA */
+  --border: 226 232 240;                /* Default border #E2E8F0 */
+  --border-light: 241 245 249;          /* Lighter border #F1F5F9 */
+  --border-accent: 186 230 253;         /* Accent border #BAE6FD */
+
+  /* ============================================
+   * TEXT COLORS
+   * ============================================ */
+  --text: var(--navy);                  /* Primary text */
+  --text-secondary: 71 85 105;          /* Secondary text #475569 */
+  --text-muted: 100 116 139;            /* Muted text #64748B */
+  --text-light: 148 163 184;            /* Light text #94A3B8 */
+
+  /* ============================================
+   * INTERACTION STATES
+   * ============================================ */
+  --focus: var(--cyan);                 /* Focus ring color */
+  --link: var(--primary);               /* Link color */
+  --hover-bg: 240 249 255;              /* Hover background #F0F9FF */
+
+  /* ============================================
+   * STATE COLORS
+   * ============================================ */
+  --success-bg: var(--success);         /* Success background (use with alpha) */
+  --info-bg: var(--primary);            /* Info background (use with alpha) */
+  --warning: 245 158 11;                /* Warning #F59E0B */
+  --error: 239 68 68;                   /* Error #EF4444 */
+
+  /* ============================================
+   * THIRD-PARTY BRAND COLORS
+   * ============================================ */
+  --vipps: 255 91 36;                   /* Vipps Orange #FF5B24 */
+  --bankid: var(--navy);                /* BankID uses navy */
+  --microsoft: 0 120 212;               /* Microsoft Blue #0078D4 */
+
+  /* ============================================
+   * RADIUS
+   * ============================================ */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-full: 9999px;
+
+  /* ============================================
+   * SHADOWS
+   * ============================================ */
+  --shadow-xs: 0 1px 2px rgb(26 54 93 / 0.05);
+  --shadow-sm: 0 2px 4px rgb(26 54 93 / 0.06);
+  --shadow-soft: 0 10px 30px rgb(26 54 93 / 0.10);
+  --shadow-lift: 0 16px 50px rgb(26 54 93 / 0.14);
+  --shadow-glow: 0 0 20px rgb(6 182 212 / 0.30);
+  --shadow-glow-strong: 0 0 40px rgb(6 182 212 / 0.45);
+
+  /* ============================================
+   * MOTION
+   * ============================================ */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 300ms;
+
+  /* ============================================
+   * SPACING (ds-size-* pattern)
+   * ============================================ */
+  --ds-size-0: 0;
+  --ds-size-1: 0.25rem;       /* 4px */
+  --ds-size-2: 0.5rem;        /* 8px */
+  --ds-size-3: 0.75rem;       /* 12px */
+  --ds-size-4: 1rem;          /* 16px */
+  --ds-size-5: 1.25rem;       /* 20px */
+  --ds-size-6: 1.5rem;        /* 24px */
+  --ds-size-8: 2rem;          /* 32px */
+  --ds-size-10: 2.5rem;       /* 40px */
+  --ds-size-12: 3rem;         /* 48px */
+  --ds-size-16: 4rem;         /* 64px */
+  --ds-size-20: 5rem;         /* 80px */
+  --ds-size-24: 6rem;         /* 96px */
+
+  --s-section: 3rem;          /* 48px section padding */
+  --s-section-sm: 2rem;       /* 32px smaller section */
+  --s-container: 1140px;      /* Max container width */
+
+  /* ============================================
+   * TYPOGRAPHY - Heading Sizes
+   * ============================================ */
+  /* 2xl - Hero headings */
+  --heading-2xl-size: 3.5rem;       /* 56px */
+  --heading-2xl-line-height: 1.1;
+  --heading-2xl-letter-spacing: -0.03em;
+
+  /* xl - Section headings */
+  --heading-xl-size: 2.75rem;       /* 44px */
+  --heading-xl-line-height: 1.15;
+  --heading-xl-letter-spacing: -0.025em;
+
+  /* lg - Subsection headings */
+  --heading-lg-size: 2rem;          /* 32px */
+  --heading-lg-line-height: 1.2;
+  --heading-lg-letter-spacing: -0.02em;
+
+  /* md - Card headings */
+  --heading-md-size: 1.5rem;        /* 24px */
+  --heading-md-line-height: 1.3;
+  --heading-md-letter-spacing: -0.015em;
+
+  /* sm - Small headings */
+  --heading-sm-size: 1.25rem;       /* 20px */
+  --heading-sm-line-height: 1.4;
+  --heading-sm-letter-spacing: -0.01em;
+
+  /* xs - Label headings */
+  --heading-xs-size: 1rem;          /* 16px */
+  --heading-xs-line-height: 1.5;
+  --heading-xs-letter-spacing: 0;
+
+  /* 2xs - Small label headings */
+  --heading-2xs-size: 0.875rem;     /* 14px */
+  --heading-2xs-line-height: 1.5;
+  --heading-2xs-letter-spacing: 0.01em;
+
+  /* ============================================
+   * TYPOGRAPHY - Body Sizes
+   * ============================================ */
+  --body-lg-size: 1.125rem;         /* 18px */
+  --body-md-size: 1rem;             /* 16px */
+  --body-sm-size: 0.875rem;         /* 14px */
+  --body-xs-size: 0.75rem;          /* 12px */
+}
+
+/* Dark mode preparation (future) */
+@media (prefers-color-scheme: dark) {
+  :root.dark-mode {
+    --bg: 15 23 42;
+    --surface: 30 41 59;
+    --text: 248 250 252;
+  }
+}
+

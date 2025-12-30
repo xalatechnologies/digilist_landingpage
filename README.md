@@ -127,6 +127,23 @@ import { Calendar } from 'lucide-react';
 />
 ```
 
+## Development Standards
+
+This project follows strict production-grade development requirements. **All developers must review and adhere to the requirements document before making any changes.**
+
+📋 **[See REQUIREMENTS.md](./REQUIREMENTS.md)** for complete development standards including:
+- Architecture & structure guidelines
+- Data model requirements
+- GDPR & privacy compliance
+- Security baseline
+- Error handling & resilience
+- Performance standards
+- Accessibility (WCAG 2.1 AA)
+- Testing requirements
+- CI/CD standards
+
+**⚠️ These requirements are NON-NEGOTIABLE and must be followed for all code changes.**
+
 ## Browser Support
 
 - Chrome (latest)

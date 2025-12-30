@@ -32,7 +32,7 @@ export const CaseStudySection: React.FC = () => {
       icon: TrendingUp,
       value: '30%',
       label: 'Økt utnyttelse av lokaler',
-      color: 'text-[#27C93F]',
+      color: 'text-status-success',
     },
     {
       icon: Clock,
@@ -46,7 +46,7 @@ export const CaseStudySection: React.FC = () => {
     <section id="cases" className="py-section bg-section-light border-t border-border-default">
       <div className="max-w-[1140px] mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <Heading level={2} className="mb-4">
             Resultater fra kommunene
           </Heading>
@@ -56,7 +56,7 @@ export const CaseStudySection: React.FC = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
           {/* Left Column: Testimonial */}
           <div className="bg-white p-8 md:p-10 rounded-digdir border border-border-default shadow-sm">
