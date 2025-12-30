@@ -114,11 +114,6 @@ export const HeroSection: React.FC = () => {
                   {homeContent.hero.ctaPrimary}
                 </Button>
               </Link>
-              <Link href="/funksjonalitet">
-                <Button variant="secondary" size="lg" showArrow>
-                  {homeContent.hero.ctaSecondary}
-                </Button>
-              </Link>
             </motion.div>
 
             {/* Trust & Certifications */}

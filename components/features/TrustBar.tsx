@@ -13,7 +13,7 @@ export const TrustBar: React.FC = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-sky2/8 via-surface-2 to-primary/3 py-12 md:py-16">
+    <div className="bg-white py-12 md:py-16">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
           <Heading level={2} className="mb-3 text-2xl md:text-3xl text-navy">

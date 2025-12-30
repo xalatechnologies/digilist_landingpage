@@ -126,9 +126,6 @@ export default function FunksjonalitetPage() {
                     <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                  Ta kontakt
-                </Button>
               </motion.div>
               
               {/* Highlight badges */}
@@ -337,20 +334,6 @@ export default function FunksjonalitetPage() {
                   alt="Kultursal booking eksempel"
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay with booking info */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="px-2 py-1 bg-success/90 rounded text-xs font-medium text-white">
-                      Ledig nå
-                    </div>
-                    <div className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs text-white">
-                      250 personer
-                    </div>
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-1">KIPO Kultursal</h4>
-                  <p className="text-sm text-white/70">Perfekt for konserter, teater og events</p>
-                </div>
               </div>
             </div>
           </div>
@@ -383,15 +366,6 @@ export default function FunksjonalitetPage() {
                   <span className="text-navy">{item.text}</span>
                 </div>
               ))}
-            </div>
-            
-            <div className="mt-8">
-              <Link href="/demo">
-                <Button variant="gradient" size="lg" className="group">
-                  Se demo
-                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
             </div>
           </div>
         </div>
