@@ -48,8 +48,9 @@ export interface TabContent {
 
 export const homeContent = {
   hero: {
-    title: "Bookingsystem for lokaler, ressurser og arrangementer",
-    subtitle: "For kommuner, kulturhus, idrettslag, skoler, bedrifter og organisasjoner. SaaS-løsning med betaling, kalender og rapportering.",
+    title: "Bookingsystem",
+    subtitle: "En helhetlig plattform for booking og planlegging",
+    description: "En helhetlig og brukervennlig SaaS-løsning for booking og administrasjon. Utviklet med moderne design, betaling, kalender og rapportering i én plattform.",
     languages: "Norsk og engelsk. Mobil og desktop.",
     ctaPrimary: "Book demo",
     ctaSecondary: "Se funksjoner",
@@ -64,7 +65,7 @@ export const homeContent = {
 
   audienceCards: [
     {
-      title: "Kommune",
+      title: "Kommuner",
       description: "Automatiser utleie av kommunale lokaler med full kontroll og rapportering.",
     },
     {
@@ -72,11 +73,11 @@ export const homeContent = {
       description: "Administrer saler, scener og arrangementer med booking og betaling.",
     },
     {
-      title: "Idrett/Skole",
+      title: "Idrettslag",
       description: "Enkel booking av idrettsanlegg, klasserom og møterom.",
     },
     {
-      title: "Bedrift",
+      title: "Bedrifter",
       description: "Profesjonell løsning for bedriftslokaler og konferanserom.",
     },
   ] as AudienceCard[],
@@ -172,8 +173,8 @@ export const homeContent = {
   ] as Step[],
 
   publicSectorRequirements: {
-    title: "Klar for anskaffelse i offentlig sektor",
-    subtitle: "Alle krav dekket for kommuner og kulturhus",
+    title: "Tilpasset offentlige krav",
+    subtitle: "Dekker krav til sikkerhet, drift, dokumentasjon og etterlevelse",
     categories: [
       {
         category: "Autentisering og tilgang",
@@ -299,9 +300,8 @@ export const homeContent = {
     },
     final: {
       title: "Klar til å komme i gang?",
-      description: "Book en demo eller ta kontakt for å se hvordan Digilist kan hjelpe din organisasjon.",
+      description: "Book en demo for å se hvordan Digilist kan hjelpe din organisasjon.",
       primary: "Book demo",
-      secondary: "Ta kontakt",
     },
   },
 };

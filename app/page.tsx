@@ -43,7 +43,7 @@ export default function HomePage() {
           title={homeContent.publicSectorRequirements.title}
           subtitle={homeContent.publicSectorRequirements.subtitle}
           categories={homeContent.publicSectorRequirements.categories}
-          variant="rich-sky"
+          variant="default"
           columns={3}
           image="/images/utleieobjekter/flytende-badstua-ulefoss.jpg"
           imageAlt="Offentlig sektor løsning"
@@ -59,7 +59,7 @@ export default function HomePage() {
       <ScrollAnimation variant="fadeLeft" delay={100}>
         <ImageShowcase
           variant="left"
-          sectionVariant="rich-primary"
+          sectionVariant="default"
           badge="Se det i praksis"
           title="Fra kultursal til idrettshall"
           description="Digilist gir deg full oversikt over alle utleieobjekter. Se tilgjengelighet i sanntid, administrer bookinger enkelt, og la brukerne selv finne og booke ledige lokaler."
@@ -81,27 +81,6 @@ export default function HomePage() {
         <IntegrationShowcase />
       </ScrollAnimation>
 
-      {/* 7.5. IMAGE SHOWCASE - Right variant */}
-      <ScrollAnimation variant="fadeRight" delay={100}>
-        <ImageShowcase
-          variant="right"
-          sectionVariant="rich-cyan"
-          badge="Fleksibel løsning"
-          title="Tilpasset dine behov"
-          description="Enten du driver et kulturhus, idrettsanlegg eller konferansesenter – Digilist skalerer med dine behov og tilpasses din organisasjon."
-          features={[
-            'Egen branding og profil',
-            'Tilpassbare bookingskjemaer',
-            'Flerspråklig støtte',
-            'Rollebasert tilgangsstyring',
-          ]}
-          image="/images/utleieobjekter/gyllenborg-idrettshall.jpg"
-          imageAlt="Idrettshall booking eksempel"
-          ctaText="Les mer om funksjonalitet"
-          ctaHref="/funksjonalitet"
-        />
-      </ScrollAnimation>
-
       {/* 8. TRYGG DRIFT - Tabs */}
       <ScrollAnimation variant="fadeUp" delay={150}>
         <OperationsTabsSection />
@@ -113,8 +92,9 @@ export default function HomePage() {
           title={homeContent.cta.final.title}
           description={homeContent.cta.final.description}
           primaryCta={homeContent.cta.final.primary}
-          secondaryCta={homeContent.cta.final.secondary}
-          variant="gradient"
+          variant="default"
+          className="bg-white"
+          primaryHref="/demo"
         />
       </ScrollAnimation>
     </div>

@@ -37,9 +37,9 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
     <ScrollAnimation variant={variant === 'left' ? 'fadeRight' : 'fadeLeft'} delay={200}>
       <div className="relative group">
         {/* Main image container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-border">
+        <div className="relative rounded-lg overflow-hidden shadow-xl border border-border">
           {/* Image with taller aspect ratio to maintain height */}
-          <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+          <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
             <img 
               src={image} 
               alt={imageAlt}

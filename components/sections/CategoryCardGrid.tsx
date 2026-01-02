@@ -44,7 +44,7 @@ export const CategoryCardGrid: React.FC<CategoryCardGridProps> = ({
           <Card key={idx} hoverable className="bg-white">
             <Card.Block>
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth shrink-0">
                   <Icon size={24} className="text-white" aria-hidden="true" />
                 </div>
                 <Heading level={3} className="text-lg sm:text-xl lg:text-2xl text-navy group-hover:text-primary transition-colors duration-180 pt-2">
@@ -55,7 +55,7 @@ export const CategoryCardGrid: React.FC<CategoryCardGridProps> = ({
                 {category.items.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex items-start gap-2">
                     <span className="text-cyan mt-1 shrink-0">•</span>
-                    <Text variant="body" className="text-sm sm:text-base text-navy/70">
+                    <Text variant="body" className="text-base text-navy/70">
                       {item}
                     </Text>
                   </li>

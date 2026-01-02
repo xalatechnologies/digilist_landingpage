@@ -5,7 +5,7 @@ import { Section } from '@/components/layout/Section';
 import { SectionHeader } from './SectionHeader';
 import { Card } from '@/components/ui/Card';
 import { Heading, Text } from '@/components/ui/Typography';
-import { Key, FileText, Settings, CheckCircle2 } from 'lucide-react';
+import { Shield, FileText, Headphones, CheckCircle2 } from 'lucide-react';
 import type { CategoryItem } from './CategoryCardGrid';
 import { CategoryCardGrid } from './CategoryCardGrid';
 
@@ -24,11 +24,12 @@ export interface CategorySectionProps {
 const tabConfig = [
   { 
     id: 0, 
-    icon: Key, 
+    icon: Shield, 
     label: 'Autentisering',
-    bgColor: 'bg-primary/10',
-    iconColor: 'text-primary',
-    activeBg: 'bg-primary',
+    bgColor: 'bg-cyan/10',
+    iconColor: 'text-cyan',
+    activeBg: 'bg-cyan',
+    preview: 'ID-porten, SSO, MFA',
     image: '/images/utleieobjekter/kipo-kultursal.jpg',
   },
   { 
@@ -38,15 +39,17 @@ const tabConfig = [
     bgColor: 'bg-cyan/10',
     iconColor: 'text-cyan',
     activeBg: 'bg-cyan',
+    preview: 'WCAG, GDPR, DPA',
     image: '/images/utleieobjekter/gyllenborg-idrettshall.jpg',
   },
   { 
     id: 2, 
-    icon: Settings, 
+    icon: Headphones, 
     label: 'Drift',
-    bgColor: 'bg-success/10',
-    iconColor: 'text-success',
-    activeBg: 'bg-success',
+    bgColor: 'bg-cyan/10',
+    iconColor: 'text-cyan',
+    activeBg: 'bg-cyan',
+    preview: 'Support, vedlikehold',
     image: '/images/utleieobjekter/flytende-badstua-ulefoss.jpg',
   },
 ];
@@ -67,7 +70,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   if (!image) {
     return (
       <Section variant={variant} id={id} className={className}>
-        <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
+        <div className="bg-success/5 rounded-lg p-6 sm:p-8 md:p-10">
           <SectionHeader title={title} subtitle={subtitle} />
           <CategoryCardGrid categories={categories} columns={columns} />
         </div>
@@ -80,121 +83,66 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   const Icon = activeConfig.icon;
 
   return (
-    <Section variant={variant} id={id} className={className}>
-      <div className="bg-success/5 rounded-2xl p-6 sm:p-8 md:p-10">
+    <Section variant="default" className="bg-white" id={id} className={className}>
+      <div className="relative">
         <SectionHeader title={title} subtitle={subtitle} />
         
         {/* Category tabs - Selectable options */}
-        <div className="mb-8">
-          <p className="text-center text-sm text-navy/60 mb-4">Velg kategori:</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {/* Tab 1: Autentisering */}
-            <button
-              onClick={() => setActiveTab(0)}
-              className={`
-                flex items-center gap-3 px-5 py-3.5 rounded-lg
-                transition-all duration-200 cursor-pointer min-h-[44px]
-                ${activeTab === 0 
-                  ? 'bg-primary text-white shadow-lg ring-2 ring-primary ring-offset-2' 
-                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-primary/5'
-                }
-              `}
-              aria-pressed={activeTab === 0}
-              aria-label="Velg Autentisering"
-            >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 0 ? 'bg-white/20' : 'bg-primary/10'}`}>
-                <Key size={18} className={activeTab === 0 ? 'text-white' : 'text-primary'} />
-              </div>
-              <div className="text-left">
-                <div className={`text-sm font-bold ${activeTab === 0 ? 'text-white' : 'text-navy'}`}>Autentisering</div>
-                <div className={`text-xs ${activeTab === 0 ? 'text-white/80' : 'text-navy/60'}`}>ID-porten, SSO, MFA</div>
-              </div>
-            </button>
-
-            {/* Tab 2: Dokumentasjon */}
-            <button
-              onClick={() => setActiveTab(1)}
-              className={`
-                flex items-center gap-3 px-5 py-3.5 rounded-lg
-                transition-all duration-200 cursor-pointer min-h-[44px]
-                ${activeTab === 1 
-                  ? 'bg-cyan text-white shadow-lg ring-2 ring-cyan ring-offset-2' 
-                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-cyan/5'
-                }
-              `}
-              aria-pressed={activeTab === 1}
-              aria-label="Velg Dokumentasjon"
-            >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 1 ? 'bg-white/20' : 'bg-cyan/10'}`}>
-                <FileText size={18} className={activeTab === 1 ? 'text-white' : 'text-cyan'} />
-              </div>
-              <div className="text-left">
-                <div className={`text-sm font-bold ${activeTab === 1 ? 'text-white' : 'text-navy'}`}>Dokumentasjon</div>
-                <div className={`text-xs ${activeTab === 1 ? 'text-white/80' : 'text-navy/60'}`}>WCAG, GDPR, DPA</div>
-              </div>
-            </button>
-
-            {/* Tab 3: Drift */}
-            <button
-              onClick={() => setActiveTab(2)}
-              className={`
-                flex items-center gap-3 px-5 py-3.5 rounded-lg
-                transition-all duration-200 cursor-pointer min-h-[44px]
-                ${activeTab === 2 
-                  ? 'bg-success text-white shadow-lg ring-2 ring-success ring-offset-2' 
-                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-success/5'
-                }
-              `}
-              aria-pressed={activeTab === 2}
-              aria-label="Velg Drift"
-            >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeTab === 2 ? 'bg-white/20' : 'bg-success/10'}`}>
-                <Settings size={18} className={activeTab === 2 ? 'text-white' : 'text-success'} />
-              </div>
-              <div className="text-left">
-                <div className={`text-sm font-bold ${activeTab === 2 ? 'text-white' : 'text-navy'}`}>Drift</div>
-                <div className={`text-xs ${activeTab === 2 ? 'text-white/80' : 'text-navy/60'}`}>Support, vedlikehold</div>
-              </div>
-            </button>
+        <div className="mb-10">
+          <div className="flex flex-wrap justify-center gap-4">
+            {tabConfig.map((tab, idx) => {
+              const TabIcon = tab.icon;
+              const isActive = activeTab === idx;
+              
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(idx)}
+                  className={`
+                    flex items-center gap-3 px-6 py-4 rounded-lg
+                    transition-all duration-300 cursor-pointer min-h-[60px]
+                    ${isActive 
+                      ? 'bg-cyan text-white shadow-lg shadow-cyan/20' 
+                      : 'bg-white text-navy border border-sky2/20 hover:border-cyan/50 hover:shadow-md'
+                    }
+                  `}
+                  aria-pressed={isActive}
+                  aria-label={`Velg ${tab.label}`}
+                >
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${isActive ? 'bg-white/20' : 'bg-cyan/10'}`}>
+                    <TabIcon size={20} className={isActive ? 'text-white' : 'text-cyan'} strokeWidth={2} />
+                  </div>
+                  <div className="text-left">
+                    <div className={`text-base font-bold ${isActive ? 'text-white' : 'text-navy'}`}>{tab.label}</div>
+                    <div className={`text-xs mt-0.5 ${isActive ? 'text-white/90' : 'text-navy/60'}`}>{tab.preview}</div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       
-      {/* Split layout: Card on left, Image on right */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-        {/* Left - Category Card */}
-        <Card variant="gradient" className="bg-white">
-          <Card.Block className="py-8 px-6">
-            <div className="flex items-center gap-4 mb-6">
-              <div className={`w-14 h-14 rounded-xl ${activeConfig.bgColor} flex items-center justify-center shadow-sm`}>
-                <Icon size={28} className={activeConfig.iconColor} />
-              </div>
-              <Heading level={3} className="text-xl sm:text-2xl text-navy">
-                {activeCategory.category}
-              </Heading>
+      {/* Content Card */}
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-lg border border-sky2/20 shadow-lg p-8 sm:p-10">
+          <div className="flex items-center gap-4 mb-8">
+            <div className={`w-16 h-16 rounded-lg ${activeConfig.bgColor} flex items-center justify-center`}>
+              <Icon size={32} className={activeConfig.iconColor} strokeWidth={2} />
             </div>
-            <ul className="space-y-4">
-              {activeCategory.items.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className={`${activeConfig.iconColor} mt-0.5 shrink-0`} />
-                  <Text variant="body" className="text-base text-navy/70">
-                    {item}
-                  </Text>
-                </li>
-              ))}
-            </ul>
-          </Card.Block>
-        </Card>
-        
-        {/* Right - Image */}
-        <div className="relative hidden lg:block h-full">
-          <div className="relative rounded-2xl overflow-hidden shadow-xl h-full">
-            <img 
-              src={activeConfig.image} 
-              alt={activeCategory.category}
-              className="w-full h-full min-h-[320px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+            <Heading level={3} className="text-2xl sm:text-3xl text-navy font-bold">
+              {activeCategory.category}
+            </Heading>
           </div>
+          <ul className="space-y-5">
+            {activeCategory.items.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-4">
+                <CheckCircle2 size={22} className="text-cyan mt-0.5 shrink-0" strokeWidth={2.5} />
+                <Text variant="body" className="text-base text-navy/80 leading-relaxed">
+                  {item}
+                </Text>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       </div>

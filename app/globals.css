@@ -233,10 +233,7 @@
   
   /* Section backgrounds - Rich, beautiful color combinations */
   .section-default {
-    background: linear-gradient(135deg, 
-      rgb(var(--surface-2)) 0%, 
-      rgb(var(--bg)) 50%, 
-      rgb(var(--sky-2) / 0.12) 100%);
+    background: white;
   }
   .section-tinted {
     background: linear-gradient(135deg, 
@@ -276,6 +273,24 @@
   }
   .section-dark {
     @apply bg-navy text-white;
+  }
+
+  /* ----- MASK GRADIENT FOR INFINITE SCROLL ----- */
+  .mask-gradient {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
   }
 
   /* ----- ICON CONTAINERS ----- */
@@ -365,8 +380,47 @@
     animation: gradient-shift 5s ease infinite;
   }
 
+  /* Infinite scroll animation - starts from right, moves left continuously */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 25s linear infinite;
+    width: fit-content;
+    will-change: transform;
+  }
+
   /* Focus ring utility */
   .focus-ring {
     @apply focus-visible:ring-4 focus-visible:ring-cyan/35 focus-visible:outline-none;
+  }
+
+  /* 3D Transform utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .rotate-x-\[-5deg\] {
+    transform: rotateX(-5deg);
+  }
+  .rotate-x-\[-3deg\] {
+    transform: rotateX(-3deg);
+  }
+  .rotate-x-\[-2deg\] {
+    transform: rotateX(-2deg);
+  }
+  .rotate-x-\[10deg\] {
+    transform: rotateX(10deg);
   }
 }

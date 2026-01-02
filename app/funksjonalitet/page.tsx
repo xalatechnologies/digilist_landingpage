@@ -301,7 +301,7 @@ export default function FunksjonalitetPage() {
                 </p>
                 <ul className="space-y-2 flex-1">
                   {feature.benefits.map((benefit, benefitIdx) => (
-                    <li key={benefitIdx} className="flex items-start gap-2 text-sm">
+                    <li key={benefitIdx} className="flex items-start gap-2 text-base">
                       <ChevronRight className="text-cyan shrink-0 mt-0.5" size={14} aria-hidden="true" />
                       <span className="text-navy">{benefit}</span>
                     </li>
@@ -495,7 +495,7 @@ export default function FunksjonalitetPage() {
               </h3>
               <ul className="space-y-3 flex-1">
                 {spec.specs.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2 text-sm">
+                  <li key={itemIdx} className="flex items-start gap-2 text-base">
                     <CheckCircle2 className="text-cyan shrink-0 mt-0.5" size={16} aria-hidden="true" />
                     <span className="text-navy/70">{item}</span>
                   </li>
