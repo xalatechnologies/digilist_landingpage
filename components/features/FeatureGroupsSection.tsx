@@ -12,17 +12,17 @@ const groupIcons = [Calendar, CreditCard, Shield, Palette];
 
 export const FeatureGroupsSection: React.FC = () => {
   return (
-    <Section variant="dark" className="bg-navy" id="funksjoner">
+    <Section variant="default" className="bg-white" id="funksjoner">
       <div className="relative">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-0 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/20 ring-1 ring-cyan/30 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
             <span className="text-sm font-medium text-cyan">Komplett løsning</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-navy mb-3 sm:mb-4">
             Funksjoner
           </h2>
-          <p className="text-base sm:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-navy/70 max-w-2xl mx-auto">
             Alt du trenger for å administrere bookinger, ressurser og arrangementer
           </p>
         </div>
@@ -36,8 +36,8 @@ export const FeatureGroupsSection: React.FC = () => {
               <div 
                 key={group.title} 
                 className="
-                  bg-gray-800/40
-                  rounded-lg border border-gray-700/40 p-6 sm:p-8
+                  bg-white
+                  rounded-lg border border-sky2/20 p-6 sm:p-8
                   shadow-lg hover:shadow-xl hover:border-cyan/50
                   transition-all duration-300 ease-smooth group cursor-pointer
                   overflow-hidden h-full flex flex-col
@@ -45,11 +45,11 @@ export const FeatureGroupsSection: React.FC = () => {
               >
                 {/* Header with icon and title */}
                 <div className="flex items-start gap-3 mb-6 flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-gray-700/50 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-cyan/10 flex items-center justify-center shrink-0">
                     <Icon className="text-cyan" size={20} strokeWidth={2} aria-hidden="true" />
                   </div>
                   <div className="flex-1 pt-0.5">
-                    <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight">
                       {group.title}
                     </h3>
                   </div>
@@ -60,7 +60,7 @@ export const FeatureGroupsSection: React.FC = () => {
                   {group.items.map((item, idx) => (
                     <li 
                       key={idx} 
-                      className="flex items-center gap-2.5 text-white"
+                      className="flex items-center gap-2.5 text-navy"
                     >
                       <div className="w-4 h-4 rounded-full bg-cyan/20 flex items-center justify-center shrink-0">
                         <Check 
@@ -70,7 +70,7 @@ export const FeatureGroupsSection: React.FC = () => {
                           aria-hidden="true"
                         />
                       </div>
-                      <span className="text-base text-white leading-relaxed">
+                      <span className="text-base text-navy/70 leading-relaxed">
                         {item.title}
                       </span>
                     </li>
