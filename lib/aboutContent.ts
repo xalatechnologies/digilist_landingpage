@@ -34,7 +34,7 @@ export const aboutContent = {
   },
 
   mission: {
-    title: "Vår misjon",
+    title: "Vår visjon",
     description: "Vi tror at alle fortjener enkel tilgang til lokaler og ressurser. Vår misjon er å digitalisere og forenkle bookingprosessen slik at flere kan delta i kultur, idrett og samfunnsliv.",
     quote: "Teknologi skal fjerne barrierer, ikke skape dem.",
   },

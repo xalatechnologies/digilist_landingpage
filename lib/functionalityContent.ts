@@ -31,7 +31,7 @@ export interface UseCaseItem {
 export const functionalityContent = {
   hero: {
     title: "Komplett funksjonalitet for moderne booking",
-    subtitle: "Alt du trenger for å administrere lokaler, ressurser og arrangementer – i én løsning.",
+    subtitle: "Alt du trenger for å administrere lokaler, planlegging og arrangementer – i én løsning.",
     description: "Fra enkel rombestilling til kompleks sesongplanlegging med integrasjoner, betaling og rapportering.",
   },
 

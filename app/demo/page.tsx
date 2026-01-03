@@ -18,7 +18,6 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
-import { Button } from '@/components/ui/Button';
 import { Heading, Text } from '@/components/ui/Typography';
 
 const demoFeatures = [
@@ -117,7 +116,7 @@ export default function DemoPage() {
     <div className="bg-white min-h-screen">
       
       {/* HERO SECTION - Split Layout */}
-      <section className="relative overflow-hidden bg-sky2/10">
+      <section className="relative overflow-hidden bg-white">
         
         <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-12 md:pt-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -137,9 +136,9 @@ export default function DemoPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}
               >
-              <Heading level={1} className="mb-6 text-3xl sm:text-4xl md:text-5xl text-navy">
+              <Heading level={1} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy">
                 Book en demo av Digilist
-          </Heading>
+              </Heading>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -174,7 +173,7 @@ export default function DemoPage() {
                   transition={{ duration: 0.4, delay: 0.5 }}
                   className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
                 >
-                  <Shield size={14} className="text-success" aria-hidden="true" />
+                  <Shield size={14} className="text-cyan" aria-hidden="true" />
                   <span className="text-xs font-medium text-navy">Ingen forpliktelser</span>
                 </motion.span>
                 <motion.span
@@ -183,7 +182,7 @@ export default function DemoPage() {
                   transition={{ duration: 0.4, delay: 0.6 }}
                   className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
                 >
-                  <Users size={14} className="text-primary" aria-hidden="true" />
+                  <Users size={14} className="text-cyan" aria-hidden="true" />
                   <span className="text-xs font-medium text-navy">Tilpasset demo</span>
                 </motion.span>
               </motion.div>
@@ -199,7 +198,7 @@ export default function DemoPage() {
               <div className="relative">
                 {/* Decorative elements */}
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan/20 rounded-full blur-2xl" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-cyan/20 rounded-full blur-2xl" />
                 
                 {/* Image Gallery Grid */}
                 <div className="grid grid-cols-2 gap-3">
@@ -213,7 +212,7 @@ export default function DemoPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <div className="flex items-center gap-2 mb-1">
-                        <div className="px-2 py-0.5 bg-success/90 rounded text-xs font-medium text-white flex items-center gap-1">
+                        <div className="px-2 py-0.5 bg-cyan/90 rounded text-xs font-medium text-white flex items-center gap-1">
                           <PlayCircle size={10} />
                           Gratis demo
                         </div>
@@ -249,17 +248,17 @@ export default function DemoPage() {
       </section>
 
       {/* MAIN CONTENT - Improved Structure */}
-      <Section variant="rich-primary">
+      <Section variant="default" className="bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
             
             {/* LEFT: Form (Sticky) */}
             <div className="lg:col-span-5 order-1 lg:order-1">
               <div className="lg:sticky lg:top-24">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-sky2/50 shadow-lg relative overflow-hidden">
+                <div className="bg-white rounded-md p-6 sm:p-8 border border-sky2/20 shadow-lg relative overflow-hidden">
                 {isSubmitted ? (
                   <div className="text-center py-8 relative z-10">
-                    <div className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle2 className="text-success" size={40} aria-hidden="true" />
+                    <div className="w-20 h-20 rounded-full bg-cyan/10 flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 className="text-cyan" size={40} aria-hidden="true" />
                     </div>
                     <Heading level={3} className="mb-3 text-xl sm:text-2xl text-navy">
                       Takk for din interesse!
@@ -268,19 +267,18 @@ export default function DemoPage() {
                       Vi har mottatt din forespørsel og vil kontakte deg innen 1 arbeidsdag 
                       for å avtale tidspunkt for demo.
                     </Text>
-                    <Button 
-                      variant="secondary" 
+                    <button 
                       onClick={() => setIsSubmitted(false)}
-                      className="w-full sm:w-auto"
+                      className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
                     >
                       Send ny forespørsel
-                    </Button>
+                    </button>
                   </div>
                 ) : (
                   <div className="relative z-10">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 text-success text-xs font-medium mb-4">
-                        <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+                        <div className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
                         Svar innen 24 timer
                       </div>
                       <Heading level={3} className="mb-2 text-xl sm:text-2xl text-navy">
@@ -392,20 +390,18 @@ export default function DemoPage() {
                         />
                       </div>
                       
-                      <Button 
+                      <button 
                         type="submit" 
-                        variant="gradient"
-                        size="lg" 
-                        className="w-full group"
+                        className="btn text-white font-bold shadow-soft btn-lg w-full group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Sender...' : 'Book demo nå'}
                         {!isSubmitting && <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />}
-            </Button>
+                      </button>
                       
                       <p className="text-xs text-navy/50 text-center">
                         Ved å sende inn godtar du vår{' '}
-                        <a href="/personvern" className="text-primary hover:underline">personvernerklæring</a>.
+                        <a href="/personvern" className="text-cyan hover:underline">personvernerklæring</a>.
                       </p>
                     </form>
                   </div>
@@ -419,7 +415,7 @@ export default function DemoPage() {
               {/* What to expect - Feature Cards */}
               <div className="mb-10">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-md bg-cyan flex items-center justify-center">
                     <Zap className="text-white" size={20} />
                   </div>
                   <Heading level={3} className="text-xl sm:text-2xl text-navy">
@@ -432,12 +428,12 @@ export default function DemoPage() {
                     return (
                       <div 
                         key={idx}
-                        className="group p-5 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden"
+                        className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden"
                       >
-                        <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
+                        <div className="w-12 h-12 rounded-md bg-cyan flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                           <Icon className="text-white" size={22} aria-hidden="true" />
                         </div>
-                        <h4 className="font-bold text-navy text-base mb-2 group-hover:text-primary transition-colors">
+                        <h4 className="font-bold text-navy text-base mb-2 group-hover:text-cyan transition-colors">
                           {feature.title}
                         </h4>
                         <p className="text-sm text-navy/60 leading-relaxed">
@@ -452,7 +448,7 @@ export default function DemoPage() {
             {/* Demo Agenda - Timeline Style */}
             <div className="mb-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan to-success flex items-center justify-center">
+                <div className="w-10 h-10 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center">
                   <Calendar className="text-white" size={20} />
                 </div>
                 <Heading level={3} className="text-xl sm:text-2xl text-navy">
@@ -461,15 +457,15 @@ export default function DemoPage() {
               </div>
               <div className="relative">
                 {/* Timeline line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-cyan to-success hidden sm:block" />
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan via-cyan/80 to-cyan hidden sm:block" />
                 
                 <div className="space-y-4">
                   {demoAgenda.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4 group">
-                      <div className="relative z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
+                      <div className="relative z-10 w-8 h-8 rounded-full bg-cyan flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                         <span className="text-xs font-bold text-white">{idx + 1}</span>
                       </div>
-                      <div className="flex-1 p-4 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
+                      <div className="flex-1 p-4 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
                         <span className="text-sm font-medium text-navy">{item}</span>
                       </div>
                     </div>
@@ -481,7 +477,7 @@ export default function DemoPage() {
             {/* Contact Info - Horizontal Cards */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-success to-primary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center">
                   <Phone className="text-white" size={20} />
                 </div>
                 <Heading level={3} className="text-xl sm:text-2xl text-navy">
@@ -491,26 +487,26 @@ export default function DemoPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <a 
                   href="mailto:demo@digilist.no"
-                  className="group p-5 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
+                  className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
+                  <div className="w-12 h-12 rounded-md bg-cyan flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                     <Mail className="text-white" size={20} aria-hidden="true" />
                   </div>
                   <p className="text-xs text-navy/50 mb-1">E-post</p>
-                  <p className="font-semibold text-navy group-hover:text-primary transition-colors text-sm">demo@digilist.no</p>
+                  <p className="font-semibold text-navy group-hover:text-cyan transition-colors text-sm">demo@digilist.no</p>
                 </a>
                 <a 
                   href="tel:+4722334455"
-                  className="group p-5 rounded-xl bg-white border-2 border-sky2/50 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
+                  className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan to-success flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
+                  <div className="w-12 h-12 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                     <Phone className="text-white" size={20} aria-hidden="true" />
                   </div>
                   <p className="text-xs text-navy/50 mb-1">Telefon</p>
-                  <p className="font-semibold text-navy group-hover:text-primary transition-colors text-sm">+47 22 33 44 55</p>
+                  <p className="font-semibold text-navy group-hover:text-cyan transition-colors text-sm">+47 22 33 44 55</p>
                 </a>
-                <div className="group p-5 rounded-xl bg-white border-2 border-sky2/50 shadow-lg text-center overflow-hidden">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success to-primary flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <div className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg text-center overflow-hidden">
+                  <div className="w-12 h-12 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center mx-auto mb-3 shadow-lg">
                     <MapPin className="text-white" size={20} aria-hidden="true" />
                   </div>
                   <p className="text-xs text-navy/50 mb-1">Lokasjon</p>
@@ -521,6 +517,8 @@ export default function DemoPage() {
             </div>
         </div>
       </Section>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </div>
   );
 }
