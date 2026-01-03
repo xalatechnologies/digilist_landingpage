@@ -83,7 +83,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   const Icon = activeConfig.icon;
 
   return (
-    <Section variant="default" className="bg-white" id={id} className={className}>
+    <Section variant="default" className={`bg-white ${className}`} id={id}>
       <div className="relative">
         <SectionHeader title={title} subtitle={subtitle} />
         
